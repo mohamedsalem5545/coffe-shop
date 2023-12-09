@@ -37,7 +37,7 @@ class _ItemForYouState extends State<ItemForYou> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 250,
+      height: MediaQuery.of(context).size.height * .33,
       // width: double.infinity,
       child: ListView.builder(
         physics: const BouncingScrollPhysics(),
@@ -119,6 +119,8 @@ class _ItemForYouState extends State<ItemForYou> {
                       height: 20,
                     ),
                     Text('${forYous[index]['title']}',
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 1,
                         style: const TextStyle(
                           color: Colors.white,
                           fontSize: 20,
