@@ -139,8 +139,11 @@ class _DetailsViewState extends State<DetailsView> {
                                 ),
                               ],
                             ),
-                            const SizedBox(height: 10),
+                            // const SizedBox(height: 1),
                             const CustomProductSizeBottons(),
+                            SizedBox(
+                              height: 10,
+                            )
                           ],
                         ),
                       ),

@@ -19,6 +19,7 @@ allprojects {
         mavenCentral()
         jcenter()
     }
+    // android:enableOnBackInvokedCallback="true"
 }
 
 rootProject.buildDir = '../build'

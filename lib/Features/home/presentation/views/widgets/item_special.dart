@@ -60,15 +60,21 @@ class ItemSpecial extends StatelessWidget {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      text,
-                      style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold),
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width * .5,
+                      child: Text(
+                        text,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold),
+                      ),
                     ),
                     SizedBox(
-                      width: 170,
+                      // width: 170,
+                      width: MediaQuery.of(context).size.width * .45,
                       child: Text(
                         overflow: TextOverflow.ellipsis,
                         maxLines: 2,
@@ -80,7 +86,7 @@ class ItemSpecial extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(
-                      height: 30,
+                      height: 10,
                     ),
                     Row(
                       //  mainAxisAlignment: MainAxisAlignment.end,

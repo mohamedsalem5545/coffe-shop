@@ -1,5 +1,6 @@
 // ignore_for_file: use_build_context_synchronously, avoid_print, non_constant_identifier_names
 
+import 'package:bookly/Features/login/presentatiion/view/widgets/custom_logo_auth.dart';
 import 'package:bookly/Features/login/presentatiion/view/widgets/custom_text_field.dart';
 import 'package:bookly/Features/login/presentatiion/view/widgets/forgot_password.dart';
 import 'package:bookly/Features/login/presentatiion/view/widgets/google_button.dart';
@@ -32,9 +33,9 @@ class _LoginViewState extends State<LoginView> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Container(
-                    height: 50,
+                    height: 20,
                   ),
-                  //  const LoodImage(),
+                  const LogoImage(),
                   const SizedBox(
                     height: 20,
                   ),

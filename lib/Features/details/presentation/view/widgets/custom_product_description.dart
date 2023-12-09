@@ -21,7 +21,7 @@ class CustomProductDeiscription extends StatelessWidget {
           ),
         ),
         const SizedBox(
-          height: 20,
+          height: 5,
         ),
         Text(
           des,

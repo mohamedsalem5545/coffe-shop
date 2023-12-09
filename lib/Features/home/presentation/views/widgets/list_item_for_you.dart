@@ -137,7 +137,7 @@ class _ItemForYouState extends State<ItemForYou> {
                       height: 10,
                     ),
                     SizedBox(
-                      width: 100,
+                      width: 200,
                       child: Row(
                         children: [
                           const Align(
