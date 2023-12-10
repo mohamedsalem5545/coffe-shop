@@ -32,6 +32,7 @@ void main() async {
   runApp(const MyApp());
 }
 
+// this is the soft ware project
 class MyApp extends StatefulWidget {
   const MyApp({super.key});
 

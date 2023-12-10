@@ -77,9 +77,9 @@ class _SplashViewbodyState extends State<SplashViewbody>
       //Navigator.pushNamed(context, 'homepage');
       if (FirebaseAuth.instance.currentUser != null &&
           FirebaseAuth.instance.currentUser!.emailVerified) {
-        return Navigator.pushNamed(context, 'login');
+        return Navigator.pushNamed(context, 'homepage');
       } else {
-        return Navigator.pushNamed(context, 'login');
+        return Navigator.pushNamed(context, 'homepage');
       }
     });
   }
