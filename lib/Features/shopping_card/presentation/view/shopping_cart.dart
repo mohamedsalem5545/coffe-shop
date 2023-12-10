@@ -17,11 +17,15 @@ class ShoppingCard extends StatefulWidget {
 
 class _ShoppingCardState extends State<ShoppingCard> {
   List<ProductModel> shoppingCardList = [];
-
-  @override
-  void initState() async {
+  void getData() async {
     shoppingCardList = await BlocProvider.of<GetShoppingCardProducts>(context)
         .getShoppingCardProductData('Ahmed@gamil.com');
+    setState(() {});
+  }
+
+  @override
+  void initState() {
+    getData();
     super.initState();
   }
 
@@ -42,16 +46,18 @@ class _ShoppingCardState extends State<ShoppingCard> {
           const SliverToBoxAdapter(
             child: SizedBox(height: 20),
           ),
-          const SliverToBoxAdapter(
+          SliverToBoxAdapter(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
-                CutomSearchTextField(),
-                SizedBox(height: 20),
-                CustomTotalPrice(),
-                SizedBox(height: 40),
-                OrderProductWidget(),
-                SizedBox(height: 30),
+                const CutomSearchTextField(),
+                const SizedBox(height: 20),
+                CustomTotalPrice(
+                  
+                ),
+                const SizedBox(height: 40),
+                const OrderProductWidget(),
+                const SizedBox(height: 30),
               ],
             ),
           )

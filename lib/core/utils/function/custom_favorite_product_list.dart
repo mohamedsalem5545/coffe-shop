@@ -18,7 +18,7 @@ class ProductModel {
       descrip: jsonData['description'],
       imagUrl: jsonData['image'],
       price: jsonData['price'],
-      numberOfPaces: jsonData['numberOfPaces'],
+      numberOfPaces: jsonData['numberOfpaces'],
     );
   }
 }

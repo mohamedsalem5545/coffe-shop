@@ -1,20 +1,27 @@
 import 'package:flutter/material.dart';
 
 class CustomTotalPrice extends StatefulWidget {
-  const CustomTotalPrice({
-    super.key,
-  });
-
+  const CustomTotalPrice({super.key});
   @override
   State<CustomTotalPrice> createState() => _CustomTotalPriceState();
 }
 
 class _CustomTotalPriceState extends State<CustomTotalPrice> {
   int totalPrice = 0;
+  void getTotalPrice() {
+    setState(() {});
+  }
+
+  @override
+  void initState() {
+    getTotalPrice();
+    print(totalPrice);
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
-   // totalPrice = BlocProvider.of<DeleteCubit>(context).totalPrice;
+    // totalPrice = BlocProvider.of<DeleteCubit>(context).totalPrice;
 
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,

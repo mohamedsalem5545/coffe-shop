@@ -5,8 +5,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class GetShoppingCardProducts extends Cubit<GetShoppingCardProductsStates> {
   GetShoppingCardProducts() : super(GetShoppingCardProductsStates());
+  int totalPrice = 0;
+
   Future<List<ProductModel>> getShoppingCardProductData(String email) async {
-    List<ProductModel> favoriteProductList = [];
+    List<ProductModel> shoppingCardList = [];
+
     emit(GetShoppingCardProductsIsloadingState());
     try {
       final user =
@@ -14,13 +17,16 @@ class GetShoppingCardProducts extends Cubit<GetShoppingCardProductsStates> {
       final snapshotData = await user.doc(email).collection('products').get();
       final favoriteProductsData =
           snapshotData.docs.map((doc) => doc.data()).toList();
+      totalPrice = 0;
       for (var i = 0; i < favoriteProductsData.length; i++) {
-        favoriteProductList.add(ProductModel.formJson(favoriteProductsData[i]));
+        totalPrice += int.parse(shoppingCardList[i].price) *
+            shoppingCardList[i].numberOfPaces!;
+        shoppingCardList.add(ProductModel.formJson(favoriteProductsData[i]));
       }
       emit(GetShoppingCardProductsSucessState());
     } catch (e) {
       emit(GetShoppingCardProductsFiledState(errorMessage: e.toString()));
     }
-    return favoriteProductList;
+    return shoppingCardList;
   }
 }

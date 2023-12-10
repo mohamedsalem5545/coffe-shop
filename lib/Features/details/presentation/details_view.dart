@@ -35,7 +35,7 @@ class _DetailsViewState extends State<DetailsView> {
   var l = true;
 
   int x = 1;
-  int prodctNumber = 0;
+  int prodctNumber = 1;
   bool shopcard = false;
   @override
   Widget build(BuildContext context) {
