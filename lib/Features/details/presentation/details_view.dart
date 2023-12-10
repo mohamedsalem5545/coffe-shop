@@ -170,7 +170,6 @@ class _DetailsViewState extends State<DetailsView> {
 
                                 setState(() {});
                               } else if (shopcard == false) {
-                                removeProductFromShoppingProductsCard();
                                 setState(() {});
                               }
                             },
