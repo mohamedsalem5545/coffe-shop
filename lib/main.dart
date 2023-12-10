@@ -45,8 +45,7 @@ class _MyAppState extends State<MyApp> {
   void initState() {
     FirebaseAuth.instance.authStateChanges().listen((User? user) {
       if (user == null) {
-         } else {
-      }
+      } else {}
     });
     super.initState();
   }
@@ -69,6 +68,7 @@ class _MyAppState extends State<MyApp> {
         debugShowCheckedModeBanner: false,
         home: const SplashView(),
         routes: {
+          //total
           'signup': (context) => const SingnUpView(),
           'login': (context) => const LoginView(),
           'homepage': (context) => const HomeView(),
