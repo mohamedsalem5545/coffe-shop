@@ -17,6 +17,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() async {
+  print('object');
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   // FavoriteProductCubit().addProductToList(
@@ -56,7 +57,7 @@ class _MyAppState extends State<MyApp> {
       create: (context) => GetFavoriteProductCubit(),
       child: MaterialApp(
         theme: ThemeData(
-          //ladfadslfasf
+            //ladfadslfasf
             // textTheme: Theme.of(context).textTheme.apply(bodyColor: Colors.black),
             brightness: Brightness.dark,
             appBarTheme: const AppBarTheme(
