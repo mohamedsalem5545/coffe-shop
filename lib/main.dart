@@ -56,6 +56,7 @@ class _MyAppState extends State<MyApp> {
       create: (context) => GetFavoriteProductCubit(),
       child: MaterialApp(
         theme: ThemeData(
+          //ladfadslfasf
             // textTheme: Theme.of(context).textTheme.apply(bodyColor: Colors.black),
             brightness: Brightness.dark,
             appBarTheme: const AppBarTheme(
