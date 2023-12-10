@@ -20,8 +20,7 @@ class GetShoppingCardProducts extends Cubit<GetShoppingCardProductsStates> {
       totalPrice = 0;
       for (var i = 0; i < favoriteProductsData.length; i++) {
         shoppingCardList.add(ProductModel.formJson(favoriteProductsData[i]));
-        totalPrice += (int.parse(shoppingCardList[i].price) *
-            shoppingCardList[i].numberOfPaces!);
+      
       }
       emit(GetShoppingCardProductsSucessState());
     } catch (e) {

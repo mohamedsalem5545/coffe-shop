@@ -17,9 +17,15 @@ class ShoppingCard extends StatefulWidget {
 
 class _ShoppingCardState extends State<ShoppingCard> {
   List<ProductModel> shoppingCardList = [];
+  int totaPrice = 0;
   void getData() async {
     shoppingCardList = await BlocProvider.of<GetShoppingCardProducts>(context)
         .getShoppingCardProductData('Ahmed@gamil.com');
+    setState(() {});
+    for (var i = 0; i < shoppingCardList.length; i++) {
+      totaPrice += int.parse(shoppingCardList[i].price) *
+          shoppingCardList[i].numberOfPaces!;
+    }
     setState(() {});
   }
 
@@ -36,6 +42,7 @@ class _ShoppingCardState extends State<ShoppingCard> {
       child: CustomScrollView(
         physics: const BouncingScrollPhysics(),
         slivers: [
+          const SliverToBoxAdapter(child: SizedBox(height: 30)),
           const SliverToBoxAdapter(
               child: CustomAppBarShoppingCart(title: 'Shopping Cart')),
           const SliverToBoxAdapter(
@@ -47,18 +54,16 @@ class _ShoppingCardState extends State<ShoppingCard> {
           const SliverToBoxAdapter(
             child: SizedBox(height: 20),
           ),
-          const SliverToBoxAdapter(
+          SliverToBoxAdapter(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
-                CutomSearchTextField(),
-                SizedBox(height: 20),
-                CustomTotalPrice(
-                  
-                ),
-                SizedBox(height: 40),
-                OrderProductWidget(),
-                SizedBox(height: 30),
+                const CutomSearchTextField(),
+                const SizedBox(height: 20),
+                CustomTotalPrice(totalPrice: totaPrice),
+                const SizedBox(height: 40),
+                const OrderProductWidget(),
+                const SizedBox(height: 30),
               ],
             ),
           )
