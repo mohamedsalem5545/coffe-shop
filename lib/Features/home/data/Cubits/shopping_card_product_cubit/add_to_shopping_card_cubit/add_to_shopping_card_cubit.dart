@@ -3,8 +3,8 @@ import 'package:bookly/core/utils/function/custom_favorite_product_list.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class AddFavoriteProductCubit extends Cubit {
-  AddFavoriteProductCubit() : super(AddShoppingCardState());
+class AddShoppingCardProductsCubit extends Cubit {
+  AddShoppingCardProductsCubit() : super(AddShoppingCardState());
   void addProductToList(String email, ProductModel product) {
     emit(AddShoppingCardLoadingState());
 
