@@ -17,7 +17,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() async {
-  print('object');
+  print('2030');
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   // FavoriteProductCubit().addProductToList(
