@@ -3,8 +3,8 @@ import 'package:bookly/core/utils/function/custom_favorite_product_list.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class GetFavoriteProductCubit extends Cubit<GetShoppingCardProductsStates> {
-  GetFavoriteProductCubit() : super(GetShoppingCardProductsStates());
+class GetShoppingCardProducts extends Cubit<GetShoppingCardProductsStates> {
+  GetShoppingCardProducts() : super(GetShoppingCardProductsStates());
   Future<List<ProductModel>> getFavoriteProductData(String email) async {
     List<ProductModel> favoriteProductList = [];
     emit(GetShoppingCardProductsIsloadingState());

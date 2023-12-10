@@ -2,6 +2,7 @@
 
 import 'package:bookly/Features/home/data/Cubits/favorite_product_cubit/get_favorite_product_cubit/get_favorite_product_cubit.dart';
 import 'package:bookly/Features/home/data/Cubits/shopping_card_product_cubit/add_to_shopping_card_cubit/add_to_shopping_card_cubit.dart';
+import 'package:bookly/Features/home/data/Cubits/shopping_card_product_cubit/get_shopping_card_cubit.dart/get_shopping_card_cubit.dart';
 import 'package:bookly/Features/home/presentation/views/home_view.dart';
 import 'package:bookly/Features/login/presentatiion/login_view.dart';
 import 'package:bookly/Features/other_page/cappuccine_view.dart';
@@ -59,8 +60,11 @@ class _MyAppState extends State<MyApp> {
         BlocProvider(
           create: (context) => GetFavoriteProductCubit(),
         ),
+        //GetShoppingCardProducts
         BlocProvider(
           create: (context) => AddShoppingCardProductsCubit(),
+        ),  BlocProvider(
+          create: (context) => GetShoppingCardProducts(),
         ),
       ],
       child: MaterialApp(
