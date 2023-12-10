@@ -1,5 +1,4 @@
 import 'package:bookly/Features/favorite_products.dart/presentation/favorite_view.dart';
-import 'package:bookly/Features/home/data/Cubits/shopping_card_product_cubit/get_shopping_card_cubit.dart/get_shopping_card_cubit.dart';
 import 'package:bookly/Features/home/presentation/views/widgets/home_view_body.dart';
 import 'package:bookly/Features/person/presentation/person_view.dart';
 import 'package:bookly/Features/shopping_card/presentation/view/shopping_cart.dart';

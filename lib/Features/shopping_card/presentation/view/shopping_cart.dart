@@ -29,6 +29,7 @@ class _ShoppingCardState extends State<ShoppingCard> {
     super.initState();
   }
 
+  @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(20),
@@ -46,18 +47,18 @@ class _ShoppingCardState extends State<ShoppingCard> {
           const SliverToBoxAdapter(
             child: SizedBox(height: 20),
           ),
-          SliverToBoxAdapter(
+          const SliverToBoxAdapter(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
-                const CutomSearchTextField(),
-                const SizedBox(height: 20),
+                CutomSearchTextField(),
+                SizedBox(height: 20),
                 CustomTotalPrice(
                   
                 ),
-                const SizedBox(height: 40),
-                const OrderProductWidget(),
-                const SizedBox(height: 30),
+                SizedBox(height: 40),
+                OrderProductWidget(),
+                SizedBox(height: 30),
               ],
             ),
           )
