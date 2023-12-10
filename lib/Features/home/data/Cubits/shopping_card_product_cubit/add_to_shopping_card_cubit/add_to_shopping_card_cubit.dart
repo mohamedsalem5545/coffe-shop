@@ -17,6 +17,7 @@ class AddShoppingCardProductsCubit extends Cubit {
         'price': product.price,
         'description': product.descrip,
         'image': product.imagUrl,
+        'numberOfpaces': product.numberOfPaces,
       });
       emit(AddShoppingCardSucessState());
     } catch (e) {

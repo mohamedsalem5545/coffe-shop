@@ -166,6 +166,7 @@ class _DetailsViewState extends State<DetailsView> {
                                       descrip: widget.des,
                                       imagUrl: widget.image,
                                       price: widget.price,
+                                      numberOfPaces: prodctNumber
                                     ));
                                 setState(() {});
                               } else {
