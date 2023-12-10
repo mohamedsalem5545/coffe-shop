@@ -141,7 +141,7 @@ class _DetailsViewState extends State<DetailsView> {
                             ),
                             // const SizedBox(height: 1),
                             const CustomProductSizeBottons(),
-                            SizedBox(
+                      const      SizedBox(
                               height: 10,
                             )
                           ],

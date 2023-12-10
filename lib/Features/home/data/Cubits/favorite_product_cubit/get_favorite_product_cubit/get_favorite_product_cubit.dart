@@ -17,7 +17,6 @@ class GetFavoriteProductCubit extends Cubit<GetFavoriteProductsStates> {
       for (var i = 0; i < favoriteProductsData.length; i++) {
         favoriteProductList.add(ProductModel.formJson(favoriteProductsData[i]));
       }
-      print('length of data is the length =${favoriteProductList.length}');
       emit(GetFavoriteProductsSucessState());
     } catch (e) {
       emit(GetFavoriteProductsFiledState(errorMessage: e.toString()));
