@@ -1,9 +1,12 @@
+import 'package:bookly/Features/home/data/Cubits/shopping_card_product_cubit/get_shopping_card_cubit.dart/get_shopping_card_cubit.dart';
 import 'package:bookly/Features/shopping_card/presentation/view/category/custom_app_bar_shopping.dart';
 import 'package:bookly/Features/shopping_card/presentation/view/category/custom_sliver_list.dart';
 import 'package:bookly/Features/shopping_card/presentation/view/category/custom_text_form_field.dart';
 import 'package:bookly/Features/shopping_card/presentation/view/category/custom_total_price.dart';
 import 'package:bookly/Features/shopping_card/presentation/view/category/order_product_widget.dart';
+import 'package:bookly/core/utils/function/custom_favorite_product_list.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ShoppingCard extends StatefulWidget {
   const ShoppingCard({super.key});
@@ -13,28 +16,33 @@ class ShoppingCard extends StatefulWidget {
 }
 
 class _ShoppingCardState extends State<ShoppingCard> {
+  List<ProductModel> shoppingCardList = [];
+
   @override
-  void initState() {
-    // totalPrice = BlocProvider.of<DeleteCubit>(context).calulatTotalPrice();
+  void initState() async {
+    shoppingCardList = await BlocProvider.of<GetShoppingCardProducts>(context)
+        .getShoppingCardProductData('Ahmed@gamil.com');
     super.initState();
   }
 
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.all(20),
+    return Padding(
+      padding: const EdgeInsets.all(20),
       child: CustomScrollView(
-        physics: BouncingScrollPhysics(),
+        physics: const BouncingScrollPhysics(),
         slivers: [
-          SliverToBoxAdapter(
+          const SliverToBoxAdapter(
               child: CustomAppBarShoppingCart(title: 'Shopping Cart')),
-          SliverToBoxAdapter(
+          const SliverToBoxAdapter(
             child: SizedBox(height: 30),
           ),
-          CustomSliverList(),
-          SliverToBoxAdapter(
+          CustomSliverList(
+            shoppingCardList: shoppingCardList,
+          ),
+          const SliverToBoxAdapter(
             child: SizedBox(height: 20),
           ),
-          SliverToBoxAdapter(
+          const SliverToBoxAdapter(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [

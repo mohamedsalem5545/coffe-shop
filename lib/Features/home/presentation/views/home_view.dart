@@ -1,4 +1,5 @@
 import 'package:bookly/Features/favorite_products.dart/presentation/favorite_view.dart';
+import 'package:bookly/Features/home/data/Cubits/shopping_card_product_cubit/get_shopping_card_cubit.dart/get_shopping_card_cubit.dart';
 import 'package:bookly/Features/home/presentation/views/widgets/home_view_body.dart';
 import 'package:bookly/Features/person/presentation/person_view.dart';
 import 'package:bookly/Features/shopping_card/presentation/view/shopping_cart.dart';
@@ -13,7 +14,8 @@ class HomeView extends StatefulWidget {
 
 class _HomeViewState extends State<HomeView> {
   int index = 0;
- 
+  @override
+   
 
   @override
   Widget build(BuildContext context) {
@@ -70,19 +72,17 @@ class _HomeViewState extends State<HomeView> {
       ),
     );
   }
-
-
 }
-  Widget getScreen(int index) {
-    switch (index) {
-      case 0:
-        return const HomeViewBody();
-      case 1:
-        return const ShoppingCard();
-      case 2:
-        return const FavoriteProducts(
-        );
-      default:
-        return const PersonBody();
-    }
+
+Widget getScreen(int index) {
+  switch (index) {
+    case 0:
+      return const HomeViewBody();
+    case 1:
+      return const ShoppingCard();
+    case 2:
+      return const FavoriteProducts();
+    default:
+      return const PersonBody();
   }
+}

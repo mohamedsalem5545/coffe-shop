@@ -60,7 +60,6 @@ class _MyAppState extends State<MyApp> {
         BlocProvider(
           create: (context) => GetFavoriteProductCubit(),
         ),
-        //GetShoppingCardProducts
         BlocProvider(
           create: (context) => AddShoppingCardProductsCubit(),
         ),  BlocProvider(

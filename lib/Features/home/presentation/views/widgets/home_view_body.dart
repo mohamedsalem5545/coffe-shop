@@ -20,7 +20,6 @@ class HomeViewBody extends StatefulWidget {
 
 class _HomeViewBodyState extends State<HomeViewBody> {
   List specials = [];
-
   CollectionReference tearef = FirebaseFirestore.instance.collection('special');
   getDate() async {
     var responsbody = await tearef.get();
@@ -32,8 +31,9 @@ class _HomeViewBodyState extends State<HomeViewBody> {
   }
 
   @override
-  void initState() {
+  void initState()  {
     getDate();
+   
     super.initState();
   }
 

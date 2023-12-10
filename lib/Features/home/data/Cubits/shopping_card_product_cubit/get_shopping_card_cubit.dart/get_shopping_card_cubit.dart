@@ -5,7 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class GetShoppingCardProducts extends Cubit<GetShoppingCardProductsStates> {
   GetShoppingCardProducts() : super(GetShoppingCardProductsStates());
-  Future<List<ProductModel>> getFavoriteProductData(String email) async {
+  Future<List<ProductModel>> getShoppingCardProductData(String email) async {
     List<ProductModel> favoriteProductList = [];
     emit(GetShoppingCardProductsIsloadingState());
     try {
