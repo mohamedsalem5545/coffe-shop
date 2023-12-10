@@ -1,6 +1,4 @@
-import 'package:bookly/Features/home/data/Cubits/delete_note_cubit/delete_cubit.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 // ignore: must_be_immutable
 class ProductShoppingCardItem extends StatefulWidget {
@@ -55,8 +53,7 @@ class _ProductShoppingCardItemState extends State<ProductShoppingCardItem> {
                     //  shoppingProductList.removeAt(widget.numberOfPices);
                     bo = false;
 
-                    BlocProvider.of<DeleteCubit>(context)
-                        .deleteProduct(widget.index);
+                 
                     // setState(() {});
 
                     // BlocProvider.of<DeleteCubit>(context).removeProductPrice(
