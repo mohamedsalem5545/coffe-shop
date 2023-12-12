@@ -13,7 +13,8 @@ class HomeView extends StatefulWidget {
 
 class _HomeViewState extends State<HomeView> {
   int index = 0;
- 
+  @override
+   
 
   @override
   Widget build(BuildContext context) {
@@ -70,19 +71,17 @@ class _HomeViewState extends State<HomeView> {
       ),
     );
   }
-
-
 }
-  Widget getScreen(int index) {
-    switch (index) {
-      case 0:
-        return const HomeViewBody();
-      case 1:
-        return const ShoppingCard();
-      case 2:
-        return const FavoriteProducts(
-        );
-      default:
-        return const PersonBody();
-    }
+
+Widget getScreen(int index) {
+  switch (index) {
+    case 0:
+      return const HomeViewBody();
+    case 1:
+      return const ShoppingCard();
+    case 2:
+      return const FavoriteProducts();
+    default:
+      return const PersonBody();
   }
+}

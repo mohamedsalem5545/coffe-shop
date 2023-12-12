@@ -6,8 +6,8 @@ import 'package:bookly/Features/details/presentation/view/widgets/custom_product
 import 'package:bookly/Features/details/presentation/view/widgets/custom_product_price_column.dart';
 import 'package:bookly/Features/details/presentation/view/widgets/custom_product_size_bottons.dart';
 import 'package:bookly/Features/details/presentation/view/widgets/custom_productsize_text.dart';
+import 'package:bookly/Features/home/data/Cubits/shopping_card_product_cubit/add_to_shopping_card_cubit/add_to_shopping_card_cubit.dart';
 import 'package:bookly/core/utils/function/custom_favorite_product_list.dart';
-import 'package:bookly/core/utils/function/custom_shopping_list.dart';
 import 'package:flutter/material.dart';
 
 class DetailsView extends StatefulWidget {
@@ -35,7 +35,7 @@ class _DetailsViewState extends State<DetailsView> {
   var l = true;
 
   int x = 1;
-  int prodctNumber = 0;
+  int prodctNumber = 1;
   bool shopcard = false;
   @override
   Widget build(BuildContext context) {
@@ -141,7 +141,7 @@ class _DetailsViewState extends State<DetailsView> {
                             ),
                             // const SizedBox(height: 1),
                             const CustomProductSizeBottons(),
-                      const      SizedBox(
+                            const SizedBox(
                               height: 10,
                             )
                           ],
@@ -159,18 +159,17 @@ class _DetailsViewState extends State<DetailsView> {
                             ontap: () {
                               if (shopcard == false) {
                                 shopcard = true;
-
+                                AddShoppingCardProductsCubit().addProductToList(
+                                    'Ahmed@gamil.com',
+                                    ProductModel(
+                                      title: widget.title,
+                                      descrip: widget.des,
+                                      imagUrl: widget.image,
+                                      price: widget.price,
+                                      numberOfPaces: prodctNumber
+                                    ));
                                 setState(() {});
                               } else {
-                                shopcard = false;
-                                setState(() {});
-                              }
-                              if (shopcard == true) {
-                                addProductToShoppingProductsCard();
-
-                                setState(() {});
-                              } else if (shopcard == false) {
-                                removeProductFromShoppingProductsCard();
                                 setState(() {});
                               }
                             },
@@ -184,33 +183,5 @@ class _DetailsViewState extends State<DetailsView> {
         ),
       ),
     );
-  }
-
-  void addProductToShoppingProductsCard() {
-    int x = 0;
-    for (var i = 0; i < shoppingProductList.length; i++) {
-      if (shoppingProductList[i].imagUrl == widget.image) {
-        x++;
-        setState(() {});
-      }
-    }
-    if (x == 0) {
-      shoppingProductList.add(ProductModel(
-          title: widget.title,
-          descrip: widget.des,
-          imagUrl: widget.image,
-          price: widget.price,
-          numberOfPaces: prodctNumber));
-      setState(() {});
-    }
-  }
-
-  void removeProductFromShoppingProductsCard() {
-    for (var i = 0; i < shoppingProductList.length; i++) {
-      if (shoppingProductList[i].imagUrl == widget.image) {
-        shoppingProductList.removeAt(i);
-        setState(() {});
-      }
-    }
   }
 }
