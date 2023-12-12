@@ -17,7 +17,7 @@ class PersonBody extends StatelessWidget {
             const CustomAppBar(
               title: 'Profile',
             ),
-            const CircularAvaterView(),
+            const addimage(),
             const SizedBox(height: 25),
             const CustomListTile(
                 title: 'My Account', loadingIcon: Icons.person_2_outlined),

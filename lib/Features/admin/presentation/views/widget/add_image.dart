@@ -1,21 +1,22 @@
 import 'dart:io';
 
+import 'package:bookly/Features/admin/presentation/views/widget/add_items.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:path/path.dart' as p;
 import 'package:shared_preferences/shared_preferences.dart';
 
-class addimage extends StatefulWidget {
-  const addimage({
+class CircularAvaterView extends StatefulWidget {
+  const CircularAvaterView({
     super.key,
   });
 
   @override
-  State<addimage> createState() => _addimageState();
+  State<CircularAvaterView> createState() => _CircularAvaterViewState();
 }
 
-class _addimageState extends State<addimage> {
+class _CircularAvaterViewState extends State<CircularAvaterView> {
   File? image;
   String? imagUrl;
   String? url;
@@ -31,6 +32,12 @@ class _addimageState extends State<addimage> {
   Widget build(BuildContext context) {
     print("0000000000000000000$imagUrl");
     print("00000000000000011111111$url");
+    if (imagUrl != null) {
+      AddItems(
+        imagUrl: imagUrl,
+      );
+      print('877877877$imagUrl');
+    }
 
     return Stack(
       alignment: Alignment.bottomRight,
@@ -76,6 +83,10 @@ class _addimageState extends State<addimage> {
           FirebaseStorage.instance.ref().child(p.basename(img.path));
       await storageRef.putFile(image!);
       imagUrl = await storageRef.getDownloadURL();
+      // AddItems(
+      //   imagUrl: imagUrl,
+      // );
+
       saveImageUrl(imagUrl!, 'ahmed@gamil.com');
       getSavedImage();
       setState(() {});

@@ -1,5 +1,6 @@
 // ignore_for_file: avoid_print
 
+import 'package:bookly/Features/admin/presentation/admi_view.dart';
 import 'package:bookly/Features/home/data/Cubits/favorite_product_cubit/get_favorite_product_cubit/get_favorite_product_cubit.dart';
 import 'package:bookly/Features/home/presentation/views/home_view.dart';
 import 'package:bookly/Features/login/presentatiion/login_view.dart';
@@ -83,6 +84,7 @@ class _MyAppState extends State<MyApp> {
           //'detailspage': (context) =>  DetailsView(),
           'Splashpage': (context) => const SplashView(),
           'Personpage': (context) => const PersonBody(),
+          'admin': (context) => MyAppa(),
         },
       ),
     );
