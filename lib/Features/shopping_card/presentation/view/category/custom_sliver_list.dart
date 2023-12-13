@@ -38,7 +38,7 @@ class _CustomSliverListState extends State<CustomSliverList> {
               index: index,
             );
           }));
-        } else if (state is GetShoppingCardProductsIsloadingState) {
+        } else {
           return SliverToBoxAdapter(
             child: Container(
               height: 600,
@@ -48,12 +48,6 @@ class _CustomSliverListState extends State<CustomSliverList> {
                   size: 50.0, // Set the size of the animation
                 ),
               ),
-            ),
-          );
-        } else {
-          return const SliverToBoxAdapter(
-            child: Center(
-              child: Text('ther are an error please try again'),
             ),
           );
         }

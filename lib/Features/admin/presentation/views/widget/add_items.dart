@@ -281,7 +281,6 @@ class _AddItemsState extends State<AddItems> {
             const SizedBox(height: 16),
             ElevatedButton(
               onPressed: (() {
-                print('start data');
                 addDocument();
               }),
               child: const Text('Add'),
@@ -317,7 +316,6 @@ class _AddItemsState extends State<AddItems> {
       // getSavedImage();
       setState(() {});
     }
-    print('imagUrl= $imagUrl');
     return imagUrl!;
   }
 }

@@ -21,6 +21,8 @@ class GetShoppingCardProducts extends Cubit<GetShoppingCardProductsStates> {
         shoppingCardList.add(
           ProductModel.formJson(favoriteProductsData[i]),
         );
+        calTotalPrice();
+        emit(CalTotalPriceState(totalprice: totalPrice));
       }
       emit(GetShoppingCardProductsSucessState(
           shoppingCardList: shoppingCardList));
@@ -55,14 +57,18 @@ class GetShoppingCardProducts extends Cubit<GetShoppingCardProductsStates> {
         .get();
     final id = snapshot.docs.first.id;
     await user.doc(email).collection('products').doc(id).delete();
-    getShoppingCardProductData(email);
+    await getShoppingCardProductData(email);
   }
 
   int calTotalPrice() {
+    totalPrice = 0;
     for (var i = 0; i < shoppingCardList.length; i++) {
-      totalPrice += int.parse(shoppingCardList[i].price);
+      totalPrice += ((int.parse(shoppingCardList[i].price)) *
+          shoppingCardList[i].numberOfPaces!);
+      print(shoppingCardList[i].price);
     }
     emit(CalTotalPriceState(totalprice: totalPrice));
+    print(totalPrice);
     return totalPrice;
   }
 }
