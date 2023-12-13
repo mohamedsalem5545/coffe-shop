@@ -5,7 +5,7 @@ class CircularAvaterView extends StatefulWidget {
   final void Function()? ontap;
   final String? imageUrl;
   @override
-  State<CircularAvaterView> createState() => _CircularAvaterViewState();
+  State<CircularAvaterView> get createState => _CircularAvaterViewState();
 }
 
 class _CircularAvaterViewState extends State<CircularAvaterView> {

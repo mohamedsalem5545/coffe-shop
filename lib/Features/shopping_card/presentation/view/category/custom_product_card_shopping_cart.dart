@@ -1,4 +1,6 @@
+import 'package:bookly/Features/home/data/Cubits/shopping_card_product_cubit/get_shopping_card_cubit.dart/get_shopping_card_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 // ignore: must_be_immutable
 class ProductShoppingCardItem extends StatefulWidget {
@@ -20,7 +22,7 @@ class ProductShoppingCardItem extends StatefulWidget {
       required this.index});
 
   @override
-  State<ProductShoppingCardItem> createState() =>
+  State<ProductShoppingCardItem> get createState =>
       _ProductShoppingCardItemState();
 }
 
@@ -49,6 +51,8 @@ class _ProductShoppingCardItemState extends State<ProductShoppingCardItem> {
               child: GestureDetector(
                 onTap: () {
                   if (bo == true) {
+                    BlocProvider.of<GetShoppingCardProducts>(context)
+                        .deleteProductById('Ahmed@gamil.com', widget.text);
                     //    print(shoppingProductList[widget.index]);
                     //  shoppingProductList.removeAt(widget.numberOfPices);
                     bo = false;

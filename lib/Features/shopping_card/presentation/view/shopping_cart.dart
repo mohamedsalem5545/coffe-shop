@@ -12,58 +12,52 @@ class ShoppingCard extends StatefulWidget {
   const ShoppingCard({super.key});
 
   @override
-  State<ShoppingCard> createState() => _ShoppingCardState();
+  State<ShoppingCard> get createState => _ShoppingCardState();
 }
 
 class _ShoppingCardState extends State<ShoppingCard> {
-  List<ProductModel> shoppingCardList = [];
-  int totaPrice = 0;
-  void getData() async {
-    shoppingCardList = await BlocProvider.of<GetShoppingCardProducts>(context)
-        .getShoppingCardProductData('Ahmed@gamil.com');
-    setState(() {});
-    for (var i = 0; i < shoppingCardList.length; i++) {
-      totaPrice += int.parse(shoppingCardList[i].price) *
-          shoppingCardList[i].numberOfPaces!;
-    }
-    setState(() {});
-  }
-
-  @override
-  void initState() {
-    getData();
-    super.initState();
-  }
+  //List<ProductModel> shoppingCardList = [];
+  //int totaPrice = 0;
+  // void getData() async {
+  //   shoppingCardList = await BlocProvider.of<GetShoppingCardProducts>(context)
+  //       .getShoppingCardProductData('Ahmed@gamil.com');
+  //   setState(() {});
+  //   for (var i = 0; i < shoppingCardList.length; i++) {
+  //     totaPrice += int.parse(shoppingCardList[i].price) *
+  //         shoppingCardList[i].numberOfPaces!;
+  //   }
+  //   setState(() {});
+  // }
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(20),
+    return const Padding(
+      padding: EdgeInsets.all(20),
       child: CustomScrollView(
-        physics: const BouncingScrollPhysics(),
+        physics: BouncingScrollPhysics(),
         slivers: [
-          const SliverToBoxAdapter(child: SizedBox(height: 30)),
-          const SliverToBoxAdapter(
+          SliverToBoxAdapter(child: SizedBox(height: 30)),
+          SliverToBoxAdapter(
               child: CustomAppBarShoppingCart(title: 'Shopping Cart')),
-          const SliverToBoxAdapter(
+          SliverToBoxAdapter(
             child: SizedBox(height: 30),
           ),
           CustomSliverList(
-            shoppingCardList: shoppingCardList,
-          ),
-          const SliverToBoxAdapter(
+              //   shoppingCardList: shoppingCardList,
+              ),
+          SliverToBoxAdapter(
             child: SizedBox(height: 20),
           ),
           SliverToBoxAdapter(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
-                const CutomSearchTextField(),
-                const SizedBox(height: 20),
-                CustomTotalPrice(totalPrice: totaPrice),
-                const SizedBox(height: 40),
-                const OrderProductWidget(),
-                const SizedBox(height: 30),
+                CutomSearchTextField(),
+                SizedBox(height: 20),
+                CustomTotalPrice(),
+                SizedBox(height: 40),
+                OrderProductWidget(),
+                SizedBox(height: 30),
               ],
             ),
           )

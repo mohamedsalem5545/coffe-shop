@@ -15,7 +15,7 @@ class CustomAppBarItem extends StatefulWidget {
   final String price;
   final String imagUrl;
   @override
-  State<CustomAppBarItem> createState() => _CustomAppBarItemState();
+  State<CustomAppBarItem> get createState => _CustomAppBarItemState();
 }
 
 class _CustomAppBarItemState extends State<CustomAppBarItem> {

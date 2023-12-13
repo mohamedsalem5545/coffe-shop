@@ -10,7 +10,7 @@ class OtherView extends StatefulWidget {
   const OtherView({super.key});
 
   @override
-  State<OtherView> createState() => _OtherViewState();
+  State<OtherView> get createState => _OtherViewState();
 }
 
 class _OtherViewState extends State<OtherView> {

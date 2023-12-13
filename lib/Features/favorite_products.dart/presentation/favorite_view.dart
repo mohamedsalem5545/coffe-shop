@@ -10,7 +10,7 @@ class FavoriteProducts extends StatefulWidget {
   const FavoriteProducts({super.key});
 
   @override
-  State<FavoriteProducts> createState() => _FavoriteProductsState();
+  State<FavoriteProducts> get createState => _FavoriteProductsState();
 }
 
 class _FavoriteProductsState extends State<FavoriteProducts> {

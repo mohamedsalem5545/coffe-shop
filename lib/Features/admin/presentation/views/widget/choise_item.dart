@@ -5,7 +5,7 @@ class ChoiseItems extends StatefulWidget {
   const ChoiseItems({super.key});
 
   @override
-  _ChoiseItemsState createState() => _ChoiseItemsState();
+  _ChoiseItemsState get createState => _ChoiseItemsState();
 }
 
 class _ChoiseItemsState extends State<ChoiseItems> {
