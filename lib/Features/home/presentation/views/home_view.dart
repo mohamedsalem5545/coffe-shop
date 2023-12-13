@@ -14,9 +14,6 @@ class HomeView extends StatefulWidget {
 class _HomeViewState extends State<HomeView> {
   int index = 0;
   @override
-   
-
-  @override
   Widget build(BuildContext context) {
     return DefaultTabController(
       length: 4,

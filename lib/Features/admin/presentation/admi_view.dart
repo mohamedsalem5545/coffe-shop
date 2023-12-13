@@ -1,8 +1,8 @@
 import 'package:bookly/Features/admin/presentation/views/widget/choise_item.dart';
 import 'package:flutter/material.dart';
 
-class MyAppa extends StatelessWidget {
-  const MyAppa({super.key});
+class AdminView extends StatelessWidget {
+  const AdminView({super.key});
 //add adsaslfasl
   @override
   Widget build(BuildContext context) {

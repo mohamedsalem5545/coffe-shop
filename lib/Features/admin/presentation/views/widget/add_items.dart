@@ -193,15 +193,21 @@
 //     });
 //   }
 // }
-import 'package:bookly/Features/person/presentation/view/widgets/cirular_avater.dart';
+import 'dart:io';
+import 'package:path/path.dart' as p;
+import 'package:bookly/Features/admin/presentation/views/widget/add_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 
 class AddItems extends StatefulWidget {
-  late String? catagoryId;
-  final String? imagUrl;
+  final String catagoryId;
 
-  AddItems({Key? key, this.catagoryId, this.imagUrl}) : super(key: key);
+  const AddItems({
+    super.key,
+    required this.catagoryId,
+  });
 
   @override
   State<AddItems> createState() => _AddItemsState();
@@ -213,15 +219,15 @@ class _AddItemsState extends State<AddItems> {
   final TextEditingController _field3Controller = TextEditingController();
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
-  Future<void> _addDocument() async {
+  Future<void> addDocument() async {
+    print("final Url is  $finalUrl");
     try {
       String documentId = _field1Controller.text.toString();
-      print('3333333333333333${widget.imagUrl}');
-      await _firestore.collection(widget.catagoryId!).doc(documentId).set({
+      await _firestore.collection(widget.catagoryId).doc(documentId).set({
         'title': _field1Controller.text,
         'des': _field2Controller.text,
         'ptice': _field3Controller.text,
-        'image': widget.imagUrl,
+        'image': imagUrl,
       });
 
       ScaffoldMessenger.of(context).showSnackBar(
@@ -230,8 +236,9 @@ class _AddItemsState extends State<AddItems> {
         ),
       );
     } catch (e) {
+      // ignore: use_build_context_synchronously
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
+        const SnackBar(
           content: Text('Error adding document: e'),
         ),
       );
@@ -239,6 +246,10 @@ class _AddItemsState extends State<AddItems> {
     //}
   }
 
+  File? image;
+  String? imagUrl;
+  String? url;
+  String? finalUrl;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -249,7 +260,13 @@ class _AddItemsState extends State<AddItems> {
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
-            const addimage(),
+            CircularAvaterView(
+              ontap: () async {
+                finalUrl = await pickImageGallery();
+                setState(() {});
+              },
+              imageUrl: imagUrl ?? imagUrl,
+            ),
             TextField(
               controller: _field1Controller,
               decoration: const InputDecoration(labelText: 'name item'),
@@ -264,12 +281,44 @@ class _AddItemsState extends State<AddItems> {
             ),
             const SizedBox(height: 16),
             ElevatedButton(
-              onPressed: _addDocument,
+              onPressed: (() {
+                print('start data');
+                addDocument();
+              }),
               child: const Text('Add'),
             ),
           ],
         ),
       ),
     );
+  }
+
+  Future<String> pickImageGallery() async {
+    String imUrl = 'no data';
+    var img = await ImagePicker().pickImage(source: ImageSource.camera);
+    if (img != null) {
+      image = File(img.path);
+      imUrl = await uploadimage(img);
+    }
+    print('imUrl= $imUrl');
+    return imUrl;
+  }
+
+  Future<String> uploadimage(var img) async {
+    if (img != null) {
+      var storageRef =
+          FirebaseStorage.instance.ref().child(p.basename(img.path));
+      await storageRef.putFile(image!);
+      imagUrl = await storageRef.getDownloadURL();
+      // AddItems(
+      //   imagUrl: imagUrl,
+      // );
+
+      //  saveImageUrl(imagUrl!, 'ahmed@gamil.com');
+      // getSavedImage();
+      setState(() {});
+    }
+    print('imagUrl= $imagUrl');
+    return imagUrl!;
   }
 }

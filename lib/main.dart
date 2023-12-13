@@ -95,7 +95,7 @@ class _MyAppState extends State<MyApp> {
           //'detailspage': (context) =>  DetailsView(),
           'Splashpage': (context) => const SplashView(),
           'Personpage': (context) => const PersonBody(),
-          'admin': (context) => MyAppa(),
+          'admin': (context) =>const AdminView(),
         },
       ),
     );
