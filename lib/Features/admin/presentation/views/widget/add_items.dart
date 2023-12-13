@@ -220,7 +220,6 @@ class _AddItemsState extends State<AddItems> {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
   Future<void> addDocument() async {
-    print("final Url is  $finalUrl");
     try {
       String documentId = _field1Controller.text.toString();
       await _firestore.collection(widget.catagoryId).doc(documentId).set({

@@ -6,6 +6,6 @@ class AdminView extends StatelessWidget {
 //add adsaslfasl
   @override
   Widget build(BuildContext context) {
-    return ChoiseItems();
+    return const ChoiseItems();
   }
 }
