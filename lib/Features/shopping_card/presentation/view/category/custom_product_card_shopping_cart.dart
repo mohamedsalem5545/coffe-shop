@@ -53,7 +53,6 @@ class _ProductShoppingCardItemState extends State<ProductShoppingCardItem> {
                     //  shoppingProductList.removeAt(widget.numberOfPices);
                     bo = false;
 
-                 
                     // setState(() {});
 
                     // BlocProvider.of<DeleteCubit>(context).removeProductPrice(
@@ -75,8 +74,13 @@ class _ProductShoppingCardItemState extends State<ProductShoppingCardItem> {
                     height: 120,
                     width: 120,
                     decoration: BoxDecoration(
-                        image: DecorationImage(
-                            image: AssetImage(widget.url), fit: BoxFit.cover)),
+                        image: widget.url[0] == 'h'
+                            ? DecorationImage(
+                                image: NetworkImage(widget.url),
+                                fit: BoxFit.cover)
+                            : DecorationImage(
+                                image: AssetImage(widget.url),
+                                fit: BoxFit.cover)),
                   ),
                 ),
                 const SizedBox(

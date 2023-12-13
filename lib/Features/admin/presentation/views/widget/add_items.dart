@@ -226,7 +226,7 @@ class _AddItemsState extends State<AddItems> {
       await _firestore.collection(widget.catagoryId).doc(documentId).set({
         'title': _field1Controller.text,
         'des': _field2Controller.text,
-        'ptice': _field3Controller.text,
+        'price': _field3Controller.text,
         'image': imagUrl,
       });
 

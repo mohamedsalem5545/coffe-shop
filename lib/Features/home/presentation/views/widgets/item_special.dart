@@ -50,8 +50,11 @@ class ItemSpecial extends StatelessWidget {
                     height: double.infinity,
                     width: 120,
                     decoration: BoxDecoration(
-                        image: DecorationImage(
-                            image: AssetImage(url), fit: BoxFit.cover)),
+                        image: url[0] == 'h'
+                            ? DecorationImage(
+                                image: NetworkImage(url), fit: BoxFit.cover)
+                            : DecorationImage(
+                                image: AssetImage(url), fit: BoxFit.cover)),
                   ),
                 ),
                 const SizedBox(

@@ -6,9 +6,14 @@ class CustomProductImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Positioned.fill(
-        child: Image(
-      image: AssetImage(image),
-      fit: BoxFit.cover,
-    ));
+        child: image[0] == 'h'
+            ? Image(
+                image: NetworkImage(image),
+                fit: BoxFit.cover,
+              )
+            : Image(
+                image: AssetImage(image),
+                fit: BoxFit.cover,
+              ));
   }
 }

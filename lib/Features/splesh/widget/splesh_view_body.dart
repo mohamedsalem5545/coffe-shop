@@ -21,7 +21,6 @@ class _SplashViewbodyState extends State<SplashViewbody>
   @override
   void initState() {
     super.initState();
-    //initSlidingAnimation2();
     initSlidingAnimation1();
 
     navigateToHome();
@@ -77,9 +76,9 @@ class _SplashViewbodyState extends State<SplashViewbody>
       //Navigator.pushNamed(context, 'homepage');
       if (FirebaseAuth.instance.currentUser != null &&
           FirebaseAuth.instance.currentUser!.emailVerified) {
-        return Navigator.pushNamed(context, 'admin');
+        return Navigator.pushNamed(context, 'homepage');
       } else {
-        return Navigator.pushNamed(context, 'admin');
+        return Navigator.pushNamed(context, 'homepage');
       }
     });
   }
