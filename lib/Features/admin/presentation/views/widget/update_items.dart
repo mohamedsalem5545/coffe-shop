@@ -1,85 +1,59 @@
-import 'dart:io';
-import 'package:path/path.dart' as p;
-import 'package:bookly/Features/admin/presentation/views/widget/add_image.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
-class AddItems extends StatefulWidget {
-  final String catagoryId;
-
-  const AddItems({
-    super.key,
-    required this.catagoryId,
-  });
+class UpdateItem extends StatefulWidget {
+  String catogryId;
+  UpdateItem({super.key, required this.catogryId});
 
   @override
-  State<AddItems> createState() => _AddItemsState();
+  State<UpdateItem> createState() => _UpdateItemState();
 }
 
-class _AddItemsState extends State<AddItems> {
+class _UpdateItemState extends State<UpdateItem> {
   final TextEditingController _field1Controller = TextEditingController();
   final TextEditingController _field2Controller = TextEditingController();
   final TextEditingController _field3Controller = TextEditingController();
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
-
-  Future<void> addDocument() async {
-    print("final Url is  $finalUrl");
+  // String catogryId;
+  void updateField() async {
+    // Replace 'your_collection' with the name of your collection and 'your_document_id' with the ID of your document.
     try {
-      String documentId = _field1Controller.text.toString();
-      await _firestore.collection(widget.catagoryId).doc(documentId).set({
-        'title': _field1Controller.text,
-        'des': _field2Controller.text,
-        'price': _field3Controller.text,
-        'image': imagUrl,
-      });
+      DocumentReference documentReference =
+          _firestore.collection(widget.catogryId).doc(_field1Controller.text);
 
-      // ignore: use_build_context_synchronously
+      // Replace 'field_to_update' with the name of the field you want to update.
+      // Replace 'new_value' with the new value you want to set for the field.
+      Map<String, dynamic> dataToUpdate = {
+        _field2Controller.text: _field3Controller.text
+      };
+
+      await documentReference.update(dataToUpdate);
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
-          content: Text(
-            'Document added to Firestore',
-            // style: TextStyle(color: Colors.orangeAccent),
-          ),
+          content: Text('Field updated successfully'),
         ),
       );
     } catch (e) {
       // ignore: use_build_context_synchronously
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text(
-            'Error adding document: $e',
-            // style: TextStyle(color: Colors.orangeAccent),
-          ),
+          content: Text('Error adding document: $e'),
         ),
       );
     }
-    //}
   }
 
-  File? image;
-  String? imagUrl;
-  String? url;
-  String? finalUrl;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         iconTheme: const IconThemeData(color: Colors.orangeAccent),
-        title: const Text('Add items'),
+        title: const Text('Update items'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
-            CircularAvaterView(
-              ontap: () async {
-                finalUrl = await pickImageGallery();
-                setState(() {});
-              },
-              imageUrl: imagUrl ?? imagUrl,
-            ),
             TextField(
               cursorColor: Colors.orangeAccent,
               controller: _field1Controller,
@@ -101,7 +75,7 @@ class _AddItemsState extends State<AddItems> {
                         color: Colors
                             .orangeAccent), // Set the color of the underline when focused
                   ),
-                  labelText: 'description',
+                  labelText: 'name field',
                   labelStyle: TextStyle(color: Colors.orangeAccent)),
             ),
             TextField(
@@ -113,10 +87,10 @@ class _AddItemsState extends State<AddItems> {
                         color: Colors
                             .orangeAccent), // Set the color of the underline when focused
                   ),
-                  labelText: 'price',
+                  labelText: 'new value for field',
                   labelStyle: TextStyle(color: Colors.orangeAccent)),
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 16),
             ElevatedButton(
               style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.all<Color>(
@@ -124,10 +98,10 @@ class _AddItemsState extends State<AddItems> {
               ),
               onPressed: (() {
                 // print('start data');
-                addDocument();
+                updateField();
               }),
               child: const Text(
-                'Add',
+                'Update',
                 style: TextStyle(color: Colors.black),
               ),
             ),
@@ -135,34 +109,5 @@ class _AddItemsState extends State<AddItems> {
         ),
       ),
     );
-  }
-
-  Future<String> pickImageGallery() async {
-    String imUrl = 'no data';
-    var img = await ImagePicker().pickImage(source: ImageSource.camera);
-    if (img != null) {
-      image = File(img.path);
-      imUrl = await uploadimage(img);
-    }
-    print('imUrl= $imUrl');
-    return imUrl;
-  }
-
-  Future<String> uploadimage(var img) async {
-    if (img != null) {
-      var storageRef =
-          FirebaseStorage.instance.ref().child(p.basename(img.path));
-      await storageRef.putFile(image!);
-      imagUrl = await storageRef.getDownloadURL();
-      // AddItems(
-      //   imagUrl: imagUrl,
-      // );
-
-      //  saveImageUrl(imagUrl!, 'ahmed@gamil.com');
-      // getSavedImage();
-      setState(() {});
-    }
-    print('imagUrl= $imagUrl');
-    return imagUrl!;
   }
 }

@@ -15,41 +15,42 @@ class CircularAvaterView extends StatefulWidget {
 }
 
 class _CircularAvaterViewState extends State<CircularAvaterView> {
-  // File? image;
-  // String? imagUrl;
-  // String? url;
-  // String? finalUrl;
   @override
   void initState() {
     super.initState();
-    //getSavedImage();
-    //  url =  getSavedImage();
   }
 
   @override
   Widget build(BuildContext context) {
-    // print("0000000000000000000$imagUrl");
-    // print("00000000000000011111111$url");
-    // if (finalUrl != null) {
-    //   // AddItems(
-    //   //   imagUrl: 'finalUrl',
-
-    //   // );
-    //   print('877877877$imagUrl');
-    // }
-
     return Stack(
       alignment: Alignment.bottomRight,
       children: [
-        CircleAvatar(
-          radius: 62,
-          //  backgroundColor: Colors.white,
+        Container(
+          width: 150.0,
+          height: 150.0,
+          color: Colors.orangeAccent,
           child: widget.imageUrl != null
-              ? CircleAvatar(
-                  radius: 60, backgroundImage: NetworkImage(widget.imageUrl!))
-              : const CircleAvatar(
-                  radius: 60,
-                  backgroundImage: AssetImage('assets/images/s3.jpg'),
+              ? Container(
+                  width: 145.0,
+                  height: 145.0,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: NetworkImage(widget
+                          .imageUrl!), // Replace with your image asset path
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                )
+              : Container(
+                  width: 145.0,
+                  height: 145.0,
+                  decoration: const BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage(
+                          'assets/images/s3.jpg'), // Replace with your image asset path
+                      fit: BoxFit.cover,
+                    ),
+                  ),
                 ),
         ),
         CircleAvatar(
@@ -72,47 +73,4 @@ class _CircularAvaterViewState extends State<CircularAvaterView> {
       ],
     );
   }
-
-  // Future<String> pickImageGallery() async {
-  //   String imUrl = 'no data';
-  //   var img = await ImagePicker().pickImage(source: ImageSource.camera);
-  //   if (img != null) {
-  //     image = File(img.path);
-  //     imUrl = await uploadimage(img);
-  //   }
-  //   print('imUrl= $imUrl');
-  //   return imUrl;
-  // }
-
-  // Future<String> uploadimage(var img) async {
-  //   if (img != null) {
-  //     var storageRef =
-  //         FirebaseStorage.instance.ref().child(p.basename(img.path));
-  //     await storageRef.putFile(image!);
-  //     imagUrl = await storageRef.getDownloadURL();
-  //     // AddItems(
-  //     //   imagUrl: imagUrl,
-  //     // );
-
-  //     //  saveImageUrl(imagUrl!, 'ahmed@gamil.com');
-  //     // getSavedImage();
-  //     setState(() {});
-  //   }
-  //   print('imagUrl= $imagUrl');
-  //   return imagUrl!;
-  // }
-
-  // void saveImageUrl(String url, String userEmail) async {
-  //   SharedPreferences sharePreference = await SharedPreferences.getInstance();
-  //   sharePreference.remove(userEmail);
-  //   await sharePreference.setString(userEmail, url);
-  // }
-
-  // void getSavedImage() async {
-  //   SharedPreferences sharePreference = await SharedPreferences.getInstance();
-
-  //   setState(() {
-  //     url = sharePreference.getString('ahmed@gamil.com');
-  //   });
-  // }
 }

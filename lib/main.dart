@@ -62,7 +62,8 @@ class _MyAppState extends State<MyApp> {
         ),
         BlocProvider(
           create: (context) => AddShoppingCardProductsCubit(),
-        ),  BlocProvider(
+        ),
+        BlocProvider(
           create: (context) => GetShoppingCardProducts(),
         ),
       ],
@@ -94,7 +95,7 @@ class _MyAppState extends State<MyApp> {
           //'detailspage': (context) =>  DetailsView(),
           'Splashpage': (context) => const SplashView(),
           'Personpage': (context) => const PersonBody(),
-          'admin': (context) =>const AdminView(),
+          'admin': (context) => const AdminView(),
         },
       ),
     );
