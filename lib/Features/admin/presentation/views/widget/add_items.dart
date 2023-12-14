@@ -15,7 +15,7 @@ class AddItems extends StatefulWidget {
   });
 
   @override
-  State<AddItems> createState() => _AddItemsState();
+  State<AddItems> get createState => _AddItemsState();
 }
 
 class _AddItemsState extends State<AddItems> {
@@ -25,7 +25,6 @@ class _AddItemsState extends State<AddItems> {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
   Future<void> addDocument() async {
-    print("final Url is  $finalUrl");
     try {
       String documentId = _field1Controller.text.toString();
       await _firestore.collection(widget.catagoryId).doc(documentId).set({
@@ -123,7 +122,10 @@ class _AddItemsState extends State<AddItems> {
                     Colors.orangeAccent), // Set the background color
               ),
               onPressed: (() {
+<<<<<<< HEAD
                 // print('start data');
+=======
+>>>>>>> 8482340e6fa6ffa64e579103ce52959e6bdaae33
                 addDocument();
               }),
               child: const Text(
@@ -162,7 +164,6 @@ class _AddItemsState extends State<AddItems> {
       // getSavedImage();
       setState(() {});
     }
-    print('imagUrl= $imagUrl');
     return imagUrl!;
   }
 }

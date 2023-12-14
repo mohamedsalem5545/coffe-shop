@@ -5,7 +5,7 @@ class TextListView extends StatefulWidget {
   const TextListView({super.key});
 
   @override
-  State<TextListView> createState() => _TextListViewState();
+  State<TextListView> get createState => _TextListViewState();
 }
 
 class _TextListViewState extends State<TextListView> {

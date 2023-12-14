@@ -1,5 +1,7 @@
 import 'package:bookly/Features/details/presentation/view/widgets/custom_botton.dart';
+import 'package:bookly/Features/home/data/Cubits/shopping_card_product_cubit/get_shopping_card_cubit.dart/get_shopping_card_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class OrderProductWidget extends StatefulWidget {
   const OrderProductWidget({
@@ -7,7 +9,7 @@ class OrderProductWidget extends StatefulWidget {
   });
 
   @override
-  State<OrderProductWidget> createState() => _OrderProductWidgetState();
+  State<OrderProductWidget> get createState => _OrderProductWidgetState();
 }
 
 class _OrderProductWidgetState extends State<OrderProductWidget> {
@@ -19,7 +21,8 @@ class _OrderProductWidgetState extends State<OrderProductWidget> {
       children: [
         GestureDetector(
           onTap: () {
-
+            BlocProvider.of<GetShoppingCardProducts>(context)
+                .deleteAllProductsInShoppingCard('Ahmed@gamil.com');
           },
           child: const SizedBox(
             height: 20,

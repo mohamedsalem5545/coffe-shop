@@ -24,7 +24,7 @@ class DetailsView extends StatefulWidget {
       required this.price});
 
   @override
-  State<DetailsView> createState() => _DetailsViewState();
+  State<DetailsView> get createState => _DetailsViewState();
 }
 
 class _DetailsViewState extends State<DetailsView> {

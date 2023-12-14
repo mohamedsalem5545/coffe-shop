@@ -1,17 +1,11 @@
-import 'dart:io';
-
-// 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
-//import 'package:image_picker/image_picker.dart';
-//import 'package:path/path.dart' as p;
-//import 'package:shared_preferences/shared_preferences.dart';
 
 class CircularAvaterView extends StatefulWidget {
   const CircularAvaterView({super.key, this.ontap, this.imageUrl});
   final void Function()? ontap;
   final String? imageUrl;
   @override
-  State<CircularAvaterView> createState() => _CircularAvaterViewState();
+  State<CircularAvaterView> get createState => _CircularAvaterViewState();
 }
 
 class _CircularAvaterViewState extends State<CircularAvaterView> {
@@ -22,6 +16,7 @@ class _CircularAvaterViewState extends State<CircularAvaterView> {
 
   @override
   Widget build(BuildContext context) {
+<<<<<<< HEAD
     return Stack(
       alignment: Alignment.bottomRight,
       children: [
@@ -29,6 +24,15 @@ class _CircularAvaterViewState extends State<CircularAvaterView> {
           width: 150.0,
           height: 150.0,
           color: Colors.orangeAccent,
+=======
+   
+
+    return Stack(
+      alignment: Alignment.bottomRight,
+      children: [
+        CircleAvatar(
+          radius: 62,
+>>>>>>> 8482340e6fa6ffa64e579103ce52959e6bdaae33
           child: widget.imageUrl != null
               ? Container(
                   width: 145.0,
@@ -56,14 +60,10 @@ class _CircularAvaterViewState extends State<CircularAvaterView> {
         CircleAvatar(
           radius: 25,
           backgroundColor: const Color(0xfff5f6f9),
-          //  child: Image.asset(''),
           child: Center(
               child: IconButton(
             onPressed: widget.ontap,
-            //  () async {
-            //   finalUrl = await pickImageGallery();
-            //   setState(() {});
-            // },
+          
             icon: Icon(
               Icons.camera_alt_outlined,
               color: Colors.black.withOpacity(0.3),
@@ -73,4 +73,9 @@ class _CircularAvaterViewState extends State<CircularAvaterView> {
       ],
     );
   }
+<<<<<<< HEAD
+=======
+
+  
+>>>>>>> 8482340e6fa6ffa64e579103ce52959e6bdaae33
 }

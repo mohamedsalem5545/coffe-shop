@@ -15,7 +15,7 @@ class HomeViewBody extends StatefulWidget {
   });
 
   @override
-  State<HomeViewBody> createState() => _HomeViewBodyState();
+  State<HomeViewBody> get createState => _HomeViewBodyState();
 }
 
 class _HomeViewBodyState extends State<HomeViewBody> {

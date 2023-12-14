@@ -10,7 +10,7 @@ class SplashViewbody extends StatefulWidget {
 
   //final id = 'SplashScreen';
   @override
-  State<SplashViewbody> createState() => _SplashViewbodyState();
+  State<SplashViewbody> get createState => _SplashViewbodyState();
 }
 
 class _SplashViewbodyState extends State<SplashViewbody>

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // import 'package:bookly/Features/admin/presentation/views/widget/add_items.dart';
 // import 'package:bookly/Features/admin/presentation/views/widget/delet_item.dart';
 // import 'package:bookly/Features/admin/presentation/views/widget/update_items.dart';
@@ -99,6 +100,11 @@
 //     );
 //   }
 // }
+=======
+// ignore_for_file: library_private_types_in_public_api
+
+import 'package:bookly/Features/admin/presentation/views/widget/add_items.dart';
+>>>>>>> 8482340e6fa6ffa64e579103ce52959e6bdaae33
 import 'package:flutter/material.dart';
 import 'package:bookly/Features/admin/presentation/views/widget/add_items.dart';
 import 'package:bookly/Features/admin/presentation/views/widget/delet_item.dart';
@@ -109,7 +115,7 @@ class ChoiseItems extends StatefulWidget {
   ChoiseItems({super.key, required this.action});
 
   @override
-  _ChoiseItemsState createState() => _ChoiseItemsState();
+  _ChoiseItemsState get createState => _ChoiseItemsState();
 }
 
 class _ChoiseItemsState extends State<ChoiseItems> {

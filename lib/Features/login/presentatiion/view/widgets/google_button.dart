@@ -6,7 +6,7 @@ class GoogleButton extends StatefulWidget {
   const GoogleButton({super.key});
 
   @override
-  State<GoogleButton> createState() => _GoogleButtonState();
+  State<GoogleButton> get createState => _GoogleButtonState();
 }
 
 class _GoogleButtonState extends State<GoogleButton> {

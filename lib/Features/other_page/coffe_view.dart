@@ -8,7 +8,7 @@ class CoffeView extends StatefulWidget {
   const CoffeView({super.key});
 
   @override
-  State<CoffeView> createState() => _CoffeViewState();
+  State<CoffeView> get createState => _CoffeViewState();
 }
 
 class _CoffeViewState extends State<CoffeView> {
