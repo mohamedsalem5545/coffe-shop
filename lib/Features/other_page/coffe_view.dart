@@ -8,7 +8,7 @@ class CoffeView extends StatefulWidget {
   const CoffeView({super.key});
 
   @override
-  State<CoffeView> get createState => _CoffeViewState();
+  State<CoffeView> createState() => _CoffeViewState();
 }
 
 class _CoffeViewState extends State<CoffeView> {
@@ -20,8 +20,7 @@ class _CoffeViewState extends State<CoffeView> {
     responsbody.docs.forEach((element) {
       setState(() {
         coffes.add(element.data());
-                totalProductList.add(element.data());
-
+        totalProductList.add(element.data());
       });
     });
   }

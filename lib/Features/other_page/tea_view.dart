@@ -3,11 +3,13 @@ import 'package:bookly/Features/search/presentation/views/search_view.dart';
 import 'package:bookly/Features/search/presentation/views/widgets/total_search.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+
 class TeaView extends StatefulWidget {
   const TeaView({super.key});
   @override
-  State<TeaView> get createState => _TeaViewState();
+  State<TeaView> createState() => _TeaViewState();
 }
+
 class _TeaViewState extends State<TeaView> {
   List teas = [];
   CollectionReference tearef = FirebaseFirestore.instance.collection('tea');
@@ -20,6 +22,7 @@ class _TeaViewState extends State<TeaView> {
       });
     });
   }
+
   @override
   void initState() {
     getDate();

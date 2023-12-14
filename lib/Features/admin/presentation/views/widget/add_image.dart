@@ -5,7 +5,7 @@ class CircularAvaterView extends StatefulWidget {
   final void Function()? ontap;
   final String? imageUrl;
   @override
-  State<CircularAvaterView> get createState => _CircularAvaterViewState();
+  State<CircularAvaterView> createState() => _CircularAvaterViewState();
 }
 
 class _CircularAvaterViewState extends State<CircularAvaterView> {
@@ -16,23 +16,11 @@ class _CircularAvaterViewState extends State<CircularAvaterView> {
 
   @override
   Widget build(BuildContext context) {
-<<<<<<< HEAD
-    return Stack(
-      alignment: Alignment.bottomRight,
-      children: [
-        Container(
-          width: 150.0,
-          height: 150.0,
-          color: Colors.orangeAccent,
-=======
-   
-
     return Stack(
       alignment: Alignment.bottomRight,
       children: [
         CircleAvatar(
           radius: 62,
->>>>>>> 8482340e6fa6ffa64e579103ce52959e6bdaae33
           child: widget.imageUrl != null
               ? Container(
                   width: 145.0,
@@ -63,7 +51,6 @@ class _CircularAvaterViewState extends State<CircularAvaterView> {
           child: Center(
               child: IconButton(
             onPressed: widget.ontap,
-          
             icon: Icon(
               Icons.camera_alt_outlined,
               color: Colors.black.withOpacity(0.3),
@@ -73,9 +60,4 @@ class _CircularAvaterViewState extends State<CircularAvaterView> {
       ],
     );
   }
-<<<<<<< HEAD
-=======
-
-  
->>>>>>> 8482340e6fa6ffa64e579103ce52959e6bdaae33
 }

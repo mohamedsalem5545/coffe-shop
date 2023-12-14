@@ -9,7 +9,7 @@ class CustomSliverList extends StatefulWidget {
   const CustomSliverList({super.key});
 
   @override
-  State<CustomSliverList> get createState => _CustomSliverListState();
+  State<CustomSliverList> createState() => _CustomSliverListState();
 }
 
 class _CustomSliverListState extends State<CustomSliverList> {

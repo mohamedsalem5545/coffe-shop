@@ -12,7 +12,7 @@ class addimage extends StatefulWidget {
   });
 
   @override
-  State<addimage> get createState => _addimageState();
+  State<addimage> createState() => _addimageState();
 }
 
 class _addimageState extends State<addimage> {

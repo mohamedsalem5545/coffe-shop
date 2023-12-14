@@ -15,7 +15,7 @@ class AddItems extends StatefulWidget {
   });
 
   @override
-  State<AddItems> get createState => _AddItemsState();
+  State<AddItems> createState() => _AddItemsState();
 }
 
 class _AddItemsState extends State<AddItems> {
@@ -122,10 +122,6 @@ class _AddItemsState extends State<AddItems> {
                     Colors.orangeAccent), // Set the background color
               ),
               onPressed: (() {
-<<<<<<< HEAD
-                // print('start data');
-=======
->>>>>>> 8482340e6fa6ffa64e579103ce52959e6bdaae33
                 addDocument();
               }),
               child: const Text(

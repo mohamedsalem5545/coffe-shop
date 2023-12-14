@@ -9,7 +9,7 @@ class OrderProductWidget extends StatefulWidget {
   });
 
   @override
-  State<OrderProductWidget> get createState => _OrderProductWidgetState();
+  State<OrderProductWidget> createState() => _OrderProductWidgetState();
 }
 
 class _OrderProductWidgetState extends State<OrderProductWidget> {

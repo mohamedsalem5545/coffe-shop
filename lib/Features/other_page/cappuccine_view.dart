@@ -8,7 +8,7 @@ class CappuccineView extends StatefulWidget {
   const CappuccineView({super.key});
 
   @override
-  State<CappuccineView> get createState => _CappuccineViewState();
+  State<CappuccineView> createState() => _CappuccineViewState();
 }
 
 class _CappuccineViewState extends State<CappuccineView> {

@@ -24,7 +24,7 @@ class DetailsView extends StatefulWidget {
       required this.price});
 
   @override
-  State<DetailsView> get createState => _DetailsViewState();
+  State<DetailsView> createState() => _DetailsViewState();
 }
 
 class _DetailsViewState extends State<DetailsView> {
@@ -162,12 +162,11 @@ class _DetailsViewState extends State<DetailsView> {
                                 AddShoppingCardProductsCubit().addProductToList(
                                     'Ahmed@gamil.com',
                                     ProductModel(
-                                      title: widget.title,
-                                      descrip: widget.des,
-                                      imagUrl: widget.image,
-                                      price: widget.price,
-                                      numberOfPaces: prodctNumber
-                                    ));
+                                        title: widget.title,
+                                        descrip: widget.des,
+                                        imagUrl: widget.image,
+                                        price: widget.price,
+                                        numberOfPaces: prodctNumber));
                                 setState(() {});
                               } else {
                                 setState(() {});

@@ -4,7 +4,7 @@ class CustomTotalPrice extends StatefulWidget {
   final int totalPrice;
   const CustomTotalPrice({super.key, required this.totalPrice});
   @override
-  State<CustomTotalPrice> get createState => _CustomTotalPriceState();
+  State<CustomTotalPrice> createState() => _CustomTotalPriceState();
 }
 
 class _CustomTotalPriceState extends State<CustomTotalPrice> {

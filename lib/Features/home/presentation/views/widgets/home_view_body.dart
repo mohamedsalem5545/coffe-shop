@@ -15,7 +15,7 @@ class HomeViewBody extends StatefulWidget {
   });
 
   @override
-  State<HomeViewBody> get createState => _HomeViewBodyState();
+  State<HomeViewBody> createState() => _HomeViewBodyState();
 }
 
 class _HomeViewBodyState extends State<HomeViewBody> {
@@ -31,9 +31,9 @@ class _HomeViewBodyState extends State<HomeViewBody> {
   }
 
   @override
-  void initState()  {
+  void initState() {
     getDate();
-   
+
     super.initState();
   }
 

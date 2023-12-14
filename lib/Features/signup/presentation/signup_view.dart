@@ -9,7 +9,7 @@ class SingnUpView extends StatefulWidget {
   const SingnUpView({super.key});
 
   @override
-  State<SingnUpView> get createState => _SingnUpViewState();
+  State<SingnUpView> createState() => _SingnUpViewState();
 }
 
 class _SingnUpViewState extends State<SingnUpView> {

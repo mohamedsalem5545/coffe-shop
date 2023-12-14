@@ -12,7 +12,7 @@ class ShoppingCard extends StatefulWidget {
   const ShoppingCard({super.key});
 
   @override
-  State<ShoppingCard> get createState => _ShoppingCardState();
+  State<ShoppingCard> createState() => _ShoppingCardState();
 }
 
 class _ShoppingCardState extends State<ShoppingCard> {

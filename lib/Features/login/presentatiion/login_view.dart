@@ -12,7 +12,7 @@ class LoginView extends StatefulWidget {
   const LoginView({super.key});
 
   @override
-  State<LoginView> get createState => _LoginViewState();
+  State<LoginView> createState() => _LoginViewState();
 }
 
 class _LoginViewState extends State<LoginView> {

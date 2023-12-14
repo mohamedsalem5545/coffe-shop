@@ -4,7 +4,7 @@ class CustomProductSizeBottons extends StatefulWidget {
   const CustomProductSizeBottons({super.key});
 
   @override
-  State<CustomProductSizeBottons> get createState =>
+  State<CustomProductSizeBottons> createState() =>
       _CustomProductSizeBottonsState();
 }
 

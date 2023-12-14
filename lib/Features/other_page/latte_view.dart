@@ -8,7 +8,7 @@ class LatteView extends StatefulWidget {
   const LatteView({super.key});
 
   @override
-  State<LatteView> get createState => _LatteViewState();
+  State<LatteView> createState() => _LatteViewState();
 }
 
 class _LatteViewState extends State<LatteView> {

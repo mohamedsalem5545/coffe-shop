@@ -22,7 +22,7 @@ class ProductShoppingCardItem extends StatefulWidget {
       required this.index});
 
   @override
-  State<ProductShoppingCardItem> get createState =>
+  State<ProductShoppingCardItem> createState() =>
       _ProductShoppingCardItemState();
 }
 

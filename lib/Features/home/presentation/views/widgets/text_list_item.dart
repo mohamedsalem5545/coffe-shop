@@ -5,7 +5,7 @@ class TextListView extends StatefulWidget {
   const TextListView({super.key});
 
   @override
-  State<TextListView> get createState => _TextListViewState();
+  State<TextListView> createState() => _TextListViewState();
 }
 
 class _TextListViewState extends State<TextListView> {
@@ -32,7 +32,7 @@ class _TextListViewState extends State<TextListView> {
           child: GestureDetector(
             onTap: () {
               currentIndex = index;
-           //   print('**************************$index');
+              //   print('**************************$index');
               if (index == 0) {
                 Navigator.of(context)
                     .pushNamedAndRemoveUntil('homepage', (route) => false);
