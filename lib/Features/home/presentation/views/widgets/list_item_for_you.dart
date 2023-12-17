@@ -4,6 +4,7 @@ import 'package:bookly/Features/details/presentation/details_view.dart';
 import 'package:bookly/Features/search/presentation/views/widgets/total_search.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class ItemForYou extends StatefulWidget {
   const ItemForYou({
@@ -39,7 +40,7 @@ class _ItemForYouState extends State<ItemForYou> {
     return SizedBox(
       height: MediaQuery.of(context).size.height * .33,
       // width: double.infinity,
-      child: ListView.builder(
+      child:forYous.isNotEmpty? ListView.builder(
         physics: const BouncingScrollPhysics(),
         scrollDirection: Axis.horizontal,
         itemCount: forYous.length,
@@ -163,7 +164,15 @@ class _ItemForYouState extends State<ItemForYou> {
             ),
           );
         },
-      ),
+      ): const SizedBox(
+              height: 600,
+              child: Center(
+                child: SpinKitThreeInOut(
+                  color: Colors.grey, // Set the color of the animation
+                  size: 50.0, // Set the size of the animation
+                ),
+              ),
+            ),
     );
   }
 }

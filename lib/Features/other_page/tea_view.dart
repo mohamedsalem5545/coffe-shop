@@ -3,6 +3,7 @@ import 'package:bookly/Features/search/presentation/views/search_view.dart';
 import 'package:bookly/Features/search/presentation/views/widgets/total_search.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class TeaView extends StatefulWidget {
   const TeaView({super.key});
@@ -52,30 +53,40 @@ class _TeaViewState extends State<TeaView> {
           IconButton(onPressed: () {}, icon: const Icon(Icons.shopping_cart)),
         ],
       ),
-      body: ListView.builder(
-        physics: const BouncingScrollPhysics(),
-        itemCount: teas.length,
-        itemBuilder: ((context, index) {
-          return GestureDetector(
-            onTap: () {
-              Navigator.of(context)
-                  .pushNamedAndRemoveUntil('detailspage', (route) => false);
-            },
-            // child: ListView.builder(
-            //   itemCount: teas.length,
-            //   itemBuilder: ((context, i) {
-            //     print('#################===$i');
-            child: ItemSpecial(
-              text: '${teas[index]['title']}',
-              subtext: '${teas[index]['des']}',
-              url: '${teas[index]['image']}',
-              price: '${teas[index]['price']}',
+      body: teas.isNotEmpty
+          ? ListView.builder(
+              physics: const BouncingScrollPhysics(),
+              itemCount: teas.length,
+              itemBuilder: ((context, index) {
+                return GestureDetector(
+                  onTap: () {
+                    Navigator.of(context).pushNamedAndRemoveUntil(
+                        'detailspage', (route) => false);
+                  },
+                  // child: ListView.builder(
+                  //   itemCount: teas.length,
+                  //   itemBuilder: ((context, i) {
+                  //     print('#################===$i');
+                  child: ItemSpecial(
+                    text: '${teas[index]['title']}',
+                    subtext: '${teas[index]['des']}',
+                    url: '${teas[index]['image']}',
+                    price: '${teas[index]['price']}',
+                  ),
+                  //   }),
+                  // ),
+                );
+              }),
+            )
+          : const SizedBox(
+              height: 600,
+              child: Center(
+                child: SpinKitThreeInOut(
+                  color: Colors.grey, // Set the color of the animation
+                  size: 50.0, // Set the size of the animation
+                ),
+              ),
             ),
-            //   }),
-            // ),
-          );
-        }),
-      ),
     );
   }
 }

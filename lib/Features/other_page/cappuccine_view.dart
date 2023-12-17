@@ -3,6 +3,7 @@ import 'package:bookly/Features/search/presentation/views/search_view.dart';
 import 'package:bookly/Features/search/presentation/views/widgets/total_search.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class CappuccineView extends StatefulWidget {
   const CappuccineView({super.key});
@@ -56,22 +57,32 @@ class _CappuccineViewState extends State<CappuccineView> {
           IconButton(onPressed: () {}, icon: const Icon(Icons.shopping_cart))
         ],
       ),
-      body: ListView.builder(
-          physics: const BouncingScrollPhysics(),
-          itemCount: cappuccines.length,
-          itemBuilder: ((context, index) {
-            return GestureDetector(
-              onTap: () {
-                Navigator.pushNamed(context, 'detailspage');
-              },
-              child: ItemSpecial(
-                text: '${cappuccines[index]['title']}',
-                subtext: '${cappuccines[index]['des']}',
-                url: '${cappuccines[index]['image']}',
-                price: '${cappuccines[index]['price']}',
+      body: cappuccines.isNotEmpty
+          ? ListView.builder(
+              physics: const BouncingScrollPhysics(),
+              itemCount: cappuccines.length,
+              itemBuilder: ((context, index) {
+                return GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, 'detailspage');
+                  },
+                  child: ItemSpecial(
+                    text: '${cappuccines[index]['title']}',
+                    subtext: '${cappuccines[index]['des']}',
+                    url: '${cappuccines[index]['image']}',
+                    price: '${cappuccines[index]['price']}',
+                  ),
+                );
+              }))
+          : const SizedBox(
+              height: 600,
+              child: Center(
+                child: SpinKitThreeInOut(
+                  color: Colors.grey, // Set the color of the animation
+                  size: 50.0, // Set the size of the animation
+                ),
               ),
-            );
-          })),
+            ),
     );
   }
 }

@@ -3,6 +3,7 @@ import 'package:bookly/Features/search/presentation/views/search_view.dart';
 import 'package:bookly/Features/search/presentation/views/widgets/total_search.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 List others = [];
 
@@ -54,23 +55,33 @@ class _OtherViewState extends State<OtherView> {
           IconButton(onPressed: () {}, icon: const Icon(Icons.shopping_cart))
         ],
       ),
-      body: ListView.builder(
-          physics: const BouncingScrollPhysics(),
-          itemCount: others.length,
-          itemBuilder: ((context, index) {
-            return GestureDetector(
-              onTap: () {
-                Navigator.pushNamed(context, 'detailspage');
-              },
-              child: ItemSpecial(
-                text: '${others[index]['title']}',
-                subtext: '${others[index]['des']}',
-                //url: 'assets/images/other/Chai.jpeg',
-                url: '${others[index]['image']}',
-                price: '${others[index]['price']}',
+      body: others.isNotEmpty
+          ? ListView.builder(
+              physics: const BouncingScrollPhysics(),
+              itemCount: others.length,
+              itemBuilder: ((context, index) {
+                return GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, 'detailspage');
+                  },
+                  child: ItemSpecial(
+                    text: '${others[index]['title']}',
+                    subtext: '${others[index]['des']}',
+                    //url: 'assets/images/other/Chai.jpeg',
+                    url: '${others[index]['image']}',
+                    price: '${others[index]['price']}',
+                  ),
+                );
+              }))
+          : const SizedBox(
+              height: 600,
+              child: Center(
+                child: SpinKitThreeInOut(
+                  color: Colors.grey, // Set the color of the animation
+                  size: 50.0, // Set the size of the animation
+                ),
               ),
-            );
-          })),
+            ),
     );
   }
 }

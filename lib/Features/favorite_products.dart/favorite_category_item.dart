@@ -4,14 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 // ignore: must_be_immutable
-class ItemSpecial extends StatelessWidget {
+class FavoriteItemSpecial extends StatelessWidget {
   String text;
   String subtext;
 
   String url;
   String price;
 
-  ItemSpecial(
+  FavoriteItemSpecial(
       {super.key,
       required this.text,
       required this.subtext,
@@ -111,6 +111,20 @@ class ItemSpecial extends StatelessWidget {
                       ],
                     ),
                   ],
+                ),
+                GestureDetector(
+                  onTap: () {
+                    BlocProvider.of<GetFavoriteProductCubit>(context)
+                        .deleteProductById('Ahmed@gamil.com', text);
+                  },
+                  child: const SizedBox(
+                    height: 30,
+                    width: 30,
+                    child: Icon(
+                      Icons.close,
+                      size: 16,
+                    ),
+                  ),
                 ),
               ],
             ),

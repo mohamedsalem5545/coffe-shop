@@ -3,6 +3,7 @@ import 'package:bookly/Features/search/presentation/views/search_view.dart';
 import 'package:bookly/Features/search/presentation/views/widgets/total_search.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class LatteView extends StatefulWidget {
   const LatteView({super.key});
@@ -56,7 +57,7 @@ class _LatteViewState extends State<LatteView> {
           IconButton(onPressed: () {}, icon: const Icon(Icons.shopping_cart))
         ],
       ),
-      body: ListView.builder(
+      body:lattes.isNotEmpty? ListView.builder(
           physics: const BouncingScrollPhysics(),
           itemCount: lattes.length,
           itemBuilder: ((context, index) {
@@ -72,7 +73,15 @@ class _LatteViewState extends State<LatteView> {
                 price: '${lattes[index]['price']}',
               ),
             );
-          })),
+          })):const  SizedBox(
+              height: 600,
+              child: Center(
+                child: SpinKitThreeInOut(
+                  color: Colors.grey, 
+                  size: 50.0, 
+                ),
+              ),
+            ),
     );
   }
 }

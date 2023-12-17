@@ -1,6 +1,6 @@
+import 'package:bookly/Features/favorite_products.dart/favorite_category_item.dart';
 import 'package:bookly/Features/home/data/Cubits/favorite_product_cubit/get_favorite_product_cubit/get_favorite_product_cubit.dart';
 import 'package:bookly/Features/home/data/Cubits/favorite_product_cubit/get_favorite_product_cubit/get_favorite_product_state.dart';
-import 'package:bookly/Features/home/presentation/views/widgets/item_special.dart';
 import 'package:bookly/Features/shopping_card/presentation/view/category/custom_app_bar_shopping.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -53,7 +53,7 @@ class _FavoriteProductsState extends State<FavoriteProducts> {
                       delegate: SliverChildBuilderDelegate(
                         childCount: state.favoriteProductList.length,
                         (context, index) {
-                          return ItemSpecial(
+                          return FavoriteItemSpecial(
                             text: state.favoriteProductList[index].title,
                             subtext: state.favoriteProductList[index].descrip,
                             url: state.favoriteProductList[index].imagUrl,

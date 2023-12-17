@@ -8,6 +8,7 @@ import 'package:bookly/Features/home/presentation/views/widgets/text_list_item.d
 import 'package:bookly/Features/search/presentation/views/widgets/total_search.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class HomeViewBody extends StatefulWidget {
   const HomeViewBody({
@@ -147,16 +148,29 @@ class _HomeViewBodyState extends State<HomeViewBody> {
                     height: 15,
                   ),
                 ),
-                SliverList(
-                    delegate: SliverChildBuilderDelegate(
-                        childCount: specials.length, (context, index) {
-                  return ItemSpecial(
-                    text: '${specials[index]['title']}',
-                    subtext: '${specials[index]['des']}',
-                    url: '${specials[index]['image']}',
-                    price: '${specials[index]['price']}',
-                  );
-                }))
+                specials.isNotEmpty
+                    ? SliverList(
+                        delegate: SliverChildBuilderDelegate(
+                            childCount: specials.length, (context, index) {
+                        return ItemSpecial(
+                          text: '${specials[index]['title']}',
+                          subtext: '${specials[index]['des']}',
+                          url: '${specials[index]['image']}',
+                          price: '${specials[index]['price']}',
+                        );
+                      }))
+                    : const SliverToBoxAdapter(
+                        child: SizedBox(
+                          height: 30,
+                          child: Center(
+                            child: SpinKitThreeInOut(
+                              color:
+                                  Colors.grey, // Set the color of the animation
+                              size: 50.0, // Set the size of the animation
+                            ),
+                          ),
+                        ),
+                      )
               ],
             ),
           ),
