@@ -1,3 +1,6 @@
+// ignore_for_file: must_be_immutable
+
+import 'package:bookly/Features/admin/presentation/views/widget/custom_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
@@ -54,42 +57,13 @@ class _UpdateItemState extends State<UpdateItem> {
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
-            TextField(
-              cursorColor: Colors.orangeAccent,
-              controller: _field1Controller,
-              decoration: const InputDecoration(
-                  focusedBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(
-                        color: Colors
-                            .orangeAccent), // Set the color of the underline when focused
-                  ),
-                  labelText: 'name item',
-                  labelStyle: TextStyle(color: Colors.orangeAccent)),
-            ),
-            TextField(
-              cursorColor: Colors.orangeAccent,
-              controller: _field2Controller,
-              decoration: const InputDecoration(
-                  focusedBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(
-                        color: Colors
-                            .orangeAccent), // Set the color of the underline when focused
-                  ),
-                  labelText: 'name field',
-                  labelStyle: TextStyle(color: Colors.orangeAccent)),
-            ),
-            TextField(
-              cursorColor: Colors.orangeAccent,
-              controller: _field3Controller,
-              decoration: const InputDecoration(
-                  focusedBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(
-                        color: Colors
-                            .orangeAccent), // Set the color of the underline when focused
-                  ),
-                  labelText: 'new value for field',
-                  labelStyle: TextStyle(color: Colors.orangeAccent)),
-            ),
+            CustomTextField(
+                fieldController: _field1Controller, title: 'name item'),
+            CustomTextField(
+                fieldController: _field2Controller, title: 'name field'),
+            CustomTextField(
+                fieldController: _field3Controller,
+                title: 'new value for field'),
             const SizedBox(height: 16),
             ElevatedButton(
               style: ButtonStyle(

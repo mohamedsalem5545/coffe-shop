@@ -88,7 +88,7 @@ class _ProductShoppingCardItemState extends State<ProductShoppingCardItem> {
                   ),
                 ),
                 const SizedBox(
-                  width: 20,
+                  width: 5,
                 ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,

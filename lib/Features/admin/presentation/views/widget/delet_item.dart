@@ -1,3 +1,4 @@
+import 'package:bookly/Features/admin/presentation/views/widget/custom_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
@@ -48,18 +49,8 @@ class _DeletItemsState extends State<DeletItems> {
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
-            TextField(
-              cursorColor: Colors.orangeAccent,
-              controller: _field1Controller,
-              decoration: const InputDecoration(
-                  focusedBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(
-                        color: Colors
-                            .orangeAccent), // Set the color of the underline when focused
-                  ),
-                  labelText: 'name item',
-                  labelStyle: TextStyle(color: Colors.orangeAccent)),
-            ),
+            CustomTextField(
+                fieldController: _field1Controller, title: 'name item'),
             const SizedBox(height: 16),
             ElevatedButton(
               style: ButtonStyle(
