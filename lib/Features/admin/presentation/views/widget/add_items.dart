@@ -1,4 +1,6 @@
 import 'dart:io';
+
+import 'package:bookly/Features/admin/presentation/views/widget/custom_text_field.dart';
 import 'package:path/path.dart' as p;
 import 'package:bookly/Features/admin/presentation/views/widget/add_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -79,42 +81,11 @@ class _AddItemsState extends State<AddItems> {
               },
               imageUrl: imagUrl ?? imagUrl,
             ),
-            TextField(
-              cursorColor: Colors.orangeAccent,
-              controller: _field1Controller,
-              decoration: const InputDecoration(
-                  focusedBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(
-                        color: Colors
-                            .orangeAccent), // Set the color of the underline when focused
-                  ),
-                  labelText: 'name item',
-                  labelStyle: TextStyle(color: Colors.orangeAccent)),
-            ),
-            TextField(
-              cursorColor: Colors.orangeAccent,
-              controller: _field2Controller,
-              decoration: const InputDecoration(
-                  focusedBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(
-                        color: Colors
-                            .orangeAccent), // Set the color of the underline when focused
-                  ),
-                  labelText: 'description',
-                  labelStyle: TextStyle(color: Colors.orangeAccent)),
-            ),
-            TextField(
-              cursorColor: Colors.orangeAccent,
-              controller: _field3Controller,
-              decoration: const InputDecoration(
-                  focusedBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(
-                        color: Colors
-                            .orangeAccent), // Set the color of the underline when focused
-                  ),
-                  labelText: 'price',
-                  labelStyle: TextStyle(color: Colors.orangeAccent)),
-            ),
+            CustomTextField(
+                fieldController: _field1Controller, title: 'name item'),
+            CustomTextField(
+                fieldController: _field2Controller, title: 'description'),
+            CustomTextField(fieldController: _field3Controller, title: 'price'),
             const SizedBox(height: 20),
             ElevatedButton(
               style: ButtonStyle(
@@ -122,6 +93,7 @@ class _AddItemsState extends State<AddItems> {
                     Colors.orangeAccent), // Set the background color
               ),
               onPressed: (() {
+                // print('start data');
                 addDocument();
               }),
               child: const Text(
