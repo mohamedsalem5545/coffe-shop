@@ -25,9 +25,9 @@ class CustomproductPriceColumn extends StatelessWidget {
             fontSize: 15,
           ),
         ),
-        const SizedBox(
-          height: 5,
-        ),
+        // const SizedBox(
+        //   height: 5,
+        // ),
         Row(
           children: [
             const Text(

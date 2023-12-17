@@ -18,7 +18,7 @@ class PersonBody extends StatelessWidget {
               title: 'Profile',
             ),
             const Addimage(),
-            const SizedBox(height: 25),
+            const SizedBox(height: 15),
             const CustomListTile(
                 title: 'My Account', loadingIcon: Icons.person_2_outlined),
             const SizedBox(height: 25),

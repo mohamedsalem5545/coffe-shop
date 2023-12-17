@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
 class CustomBottom extends StatelessWidget {
-   CustomBottom({
+  CustomBottom({
     super.key,
     required this.title,
     this.ontap,
   });
   final String title;
- void Function()?ontap;
+  void Function()? ontap;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(

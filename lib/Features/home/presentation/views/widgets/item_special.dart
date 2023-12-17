@@ -50,7 +50,8 @@ class ItemSpecial extends StatelessWidget {
                   borderRadius: BorderRadius.circular(20),
                   child: Container(
                     height: double.infinity,
-                    width: 120,
+                    // width: 80,
+                    width: MediaQuery.of(context).size.width * .3,
                     decoration: BoxDecoration(
                         image: url[0] == 'h'
                             ? DecorationImage(
@@ -66,7 +67,7 @@ class ItemSpecial extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     SizedBox(
-                      //width: MediaQuery.of(context).size.width * .5,
+                      width: MediaQuery.of(context).size.width * .45,
                       child: Text(
                         text,
                         maxLines: 1,

@@ -31,7 +31,7 @@ class FavoriteItemSpecial extends StatelessWidget {
         child: Container(
           margin: const EdgeInsets.all(10),
           height: 120,
-          width: double.infinity,
+          //  width: double.infinity,
           child: GestureDetector(
             onTap: () {
               Navigator.push(context, MaterialPageRoute(builder: ((context) {
@@ -51,6 +51,7 @@ class FavoriteItemSpecial extends StatelessWidget {
                   child: Container(
                     height: double.infinity,
                     width: 120,
+                    // width: MediaQuery.of(context).size.width * .25,
                     decoration: BoxDecoration(
                         image: url[0] == 'h'
                             ? DecorationImage(
@@ -60,13 +61,13 @@ class FavoriteItemSpecial extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(
-                  width: 20,
+                  width: 15,
                 ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     SizedBox(
-                      //width: MediaQuery.of(context).size.width * .5,
+                      width: MediaQuery.of(context).size.width * .4,
                       child: Text(
                         text,
                         maxLines: 1,
@@ -79,7 +80,7 @@ class FavoriteItemSpecial extends StatelessWidget {
                     ),
                     SizedBox(
                       // width: 170,
-                      width: MediaQuery.of(context).size.width * .45,
+                      width: MediaQuery.of(context).size.width * .4,
                       child: Text(
                         overflow: TextOverflow.ellipsis,
                         maxLines: 2,
@@ -96,7 +97,9 @@ class FavoriteItemSpecial extends StatelessWidget {
                     Row(
                       //  mainAxisAlignment: MainAxisAlignment.end,
                       children: [
-                        const SizedBox(width: 140),
+                        SizedBox(
+                          width: MediaQuery.of(context).size.width * .3,
+                        ),
                         const Text("\$ ",
                             style: TextStyle(
                                 color: Colors.orange,
@@ -118,8 +121,8 @@ class FavoriteItemSpecial extends StatelessWidget {
                         .deleteProductById('Ahmed@gamil.com', text);
                   },
                   child: const SizedBox(
-                    height: 30,
-                    width: 30,
+                    height: 15,
+                    width: 15,
                     child: Icon(
                       Icons.close,
                       size: 16,
