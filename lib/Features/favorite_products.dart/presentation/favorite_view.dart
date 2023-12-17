@@ -2,9 +2,9 @@ import 'package:bookly/Features/home/data/Cubits/favorite_product_cubit/get_favo
 import 'package:bookly/Features/home/data/Cubits/favorite_product_cubit/get_favorite_product_cubit/get_favorite_product_state.dart';
 import 'package:bookly/Features/home/presentation/views/widgets/item_special.dart';
 import 'package:bookly/Features/shopping_card/presentation/view/category/custom_app_bar_shopping.dart';
-import 'package:bookly/core/utils/function/custom_favorite_product_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class FavoriteProducts extends StatefulWidget {
   const FavoriteProducts({super.key});
@@ -16,17 +16,11 @@ class FavoriteProducts extends StatefulWidget {
 class _FavoriteProductsState extends State<FavoriteProducts> {
   bool var1 = false;
 
-  List<ProductModel> favoriteProductList = [];
-  void getData() async {
-    favoriteProductList = await GetFavoriteProductCubit()
-        .getFavoriteProductData('Ahmed@gamil.com');
-    setState(() {});
-  }
-
   @override
   void initState() {
+    BlocProvider.of<GetFavoriteProductCubit>(context)
+        .getFavoriteProductData('Ahmed@gamil.com');
     super.initState();
-    getData();
   }
 
   @override
@@ -51,16 +45,39 @@ class _FavoriteProductsState extends State<FavoriteProducts> {
                   var1 == false;
                 }
               },
-              child: SliverList(
-                  delegate: SliverChildBuilderDelegate(
-                      childCount: favoriteProductList.length, (context, index) {
-                return ItemSpecial(
-                  text: favoriteProductList[index].title,
-                  subtext: favoriteProductList[index].descrip,
-                  url: favoriteProductList[index].imagUrl,
-                  price: favoriteProductList[index].price,
-                );
-              })),
+              child: BlocBuilder<GetFavoriteProductCubit,
+                  GetFavoriteProductsStates>(
+                builder: (context, state) {
+                  if (state is GetFavoriteProductsSucessState) {
+                    return SliverList(
+                      delegate: SliverChildBuilderDelegate(
+                        childCount: state.favoriteProductList.length,
+                        (context, index) {
+                          return ItemSpecial(
+                            text: state.favoriteProductList[index].title,
+                            subtext: state.favoriteProductList[index].descrip,
+                            url: state.favoriteProductList[index].imagUrl,
+                            price: state.favoriteProductList[index].price,
+                          );
+                        },
+                      ),
+                    );
+                  } else {
+                    return const SliverToBoxAdapter(
+                      child: SizedBox(
+                        height: 600,
+                        child: Center(
+                          child: SpinKitThreeInOut(
+                            color:
+                                Colors.grey, // Set the color of the animation
+                            size: 50.0, // Set the size of the animation
+                          ),
+                        ),
+                      ),
+                    );
+                  }
+                },
+              ),
             ),
             const SliverToBoxAdapter(
               child: SizedBox(height: 20),

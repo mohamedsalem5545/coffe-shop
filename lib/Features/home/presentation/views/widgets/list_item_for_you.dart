@@ -59,13 +59,13 @@ class _ItemForYouState extends State<ItemForYou> {
             },
             child: Card(
               elevation: 20,
-              color: Colors.white.withOpacity(.1),
+              color: Colors.white.withOpacity(0.1),
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20)),
               margin: const EdgeInsets.only(right: 20),
               child: Container(
                 padding: const EdgeInsets.all(15),
-                width: 155,
+                width: 170,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [

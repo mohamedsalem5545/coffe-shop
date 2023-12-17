@@ -6,16 +6,16 @@ import 'package:image_picker/image_picker.dart';
 import 'package:path/path.dart' as p;
 import 'package:shared_preferences/shared_preferences.dart';
 
-class addimage extends StatefulWidget {
-  const addimage({
+class Addimage extends StatefulWidget {
+  const Addimage({
     super.key,
   });
 
   @override
-  State<addimage> createState() => _addimageState();
+  State<Addimage> createState() => _AddimageState();
 }
 
-class _addimageState extends State<addimage> {
+class _AddimageState extends State<Addimage> {
   File? image;
   String? imagUrl;
   String? url;
@@ -29,8 +29,6 @@ class _addimageState extends State<addimage> {
 
   @override
   Widget build(BuildContext context) {
-    print("0000000000000000000$imagUrl");
-    print("00000000000000011111111$url");
 
     return Stack(
       alignment: Alignment.bottomRight,

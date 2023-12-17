@@ -5,8 +5,9 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 class GetFavoriteProductCubit extends Cubit<GetFavoriteProductsStates> {
   GetFavoriteProductCubit() : super(GetFavoriteProductsStates());
-  Future<List<ProductModel>> getFavoriteProductData(String email) async {
+  Future<void> getFavoriteProductData(String email) async {
     List<ProductModel> favoriteProductList = [];
+
     emit(GetFavoriteProductsIsloadingState());
     try {
       final user =
@@ -17,10 +18,23 @@ class GetFavoriteProductCubit extends Cubit<GetFavoriteProductsStates> {
       for (var i = 0; i < favoriteProductsData.length; i++) {
         favoriteProductList.add(ProductModel.formJson(favoriteProductsData[i]));
       }
-      emit(GetFavoriteProductsSucessState());
+      emit(GetFavoriteProductsSucessState(
+          favoriteProductList: favoriteProductList));
     } catch (e) {
       emit(GetFavoriteProductsFiledState(errorMessage: e.toString()));
     }
-    return favoriteProductList;
+  }
+
+  Future<void> deleteProductById(String email, String title) async {
+    final user =
+        FirebaseFirestore.instance.collection('favorite_products_data');
+    final snapshot = await user
+        .doc(email)
+        .collection('products')
+        .where('title', isEqualTo: title)
+        .get();
+    final id = snapshot.docs.first.id;
+    await user.doc(email).collection('products').doc(id).delete();
+    await getFavoriteProductData(email);
   }
 }

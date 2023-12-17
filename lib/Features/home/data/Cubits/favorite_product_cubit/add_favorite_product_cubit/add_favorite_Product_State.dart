@@ -1,3 +1,4 @@
+
 class AddFavoriteProductsStates {}
 
 class AddToFavoriteProductsSucessState extends AddFavoriteProductsStates {}

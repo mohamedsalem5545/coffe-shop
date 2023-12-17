@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class DeletItems extends StatefulWidget {
-  String catogryId;
+ final String catogryId;
 
-  DeletItems({super.key, required this.catogryId});
+ const DeletItems({super.key, required this.catogryId});
 
   @override
   State<DeletItems> createState() => _DeletItemsState();
@@ -22,6 +22,7 @@ class _DeletItemsState extends State<DeletItems> {
           _firestore.collection(widget.catogryId).doc(_field1Controller.text);
 
       await documentReference.delete();
+      // ignore: use_build_context_synchronously
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           content: Text('Document deleted successfully!'),

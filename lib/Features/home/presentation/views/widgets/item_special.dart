@@ -1,5 +1,7 @@
 import 'package:bookly/Features/details/presentation/details_view.dart';
+import 'package:bookly/Features/home/data/Cubits/favorite_product_cubit/get_favorite_product_cubit/get_favorite_product_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 // ignore: must_be_immutable
 class ItemSpecial extends StatelessWidget {
@@ -42,74 +44,94 @@ class ItemSpecial extends StatelessWidget {
             margin: const EdgeInsets.all(10),
             height: 120,
             width: double.infinity,
-            child: Row(
+            child: Stack(
               children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(20),
-                  child: Container(
-                    height: double.infinity,
-                    width: 120,
-                    decoration: BoxDecoration(
-                        image: url[0] == 'h'
-                            ? DecorationImage(
-                                image: NetworkImage(url), fit: BoxFit.cover)
-                            : DecorationImage(
-                                image: AssetImage(url), fit: BoxFit.cover)),
-                  ),
-                ),
-                const SizedBox(
-                  width: 20,
-                ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    SizedBox(
-                      width: MediaQuery.of(context).size.width * .5,
-                      child: Text(
-                        text,
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                        style: const TextStyle(
-                            color: Colors.white,
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                    SizedBox(
-                      // width: 170,
-                      width: MediaQuery.of(context).size.width * .45,
-                      child: Text(
-                        overflow: TextOverflow.ellipsis,
-                        maxLines: 2,
-                        subtext,
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 17,
+                Positioned(
+                    right: 1,
+                    child: GestureDetector(
+                      onTap: () {
+                        BlocProvider.of<GetFavoriteProductCubit>(context)
+                            .deleteProductById('Ahmed@gamil.com', text);
+                      },
+                      child: const SizedBox(
+                        height: 15,
+                        width: 18,
+                        child: Icon(
+                          Icons.close,
+                          size: 16,
                         ),
+                      ),
+                    )),
+                Row(
+                  children: [
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(20),
+                      child: Container(
+                        height: double.infinity,
+                        width: 120,
+                        decoration: BoxDecoration(
+                            image: url[0] == 'h'
+                                ? DecorationImage(
+                                    image: NetworkImage(url), fit: BoxFit.cover)
+                                : DecorationImage(
+                                    image: AssetImage(url), fit: BoxFit.cover)),
                       ),
                     ),
                     const SizedBox(
-                      height: 10,
+                      width: 20,
                     ),
-                    Row(
-                      //  mainAxisAlignment: MainAxisAlignment.end,
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const SizedBox(width: 140),
-                        const Text("\$ ",
-                            style: TextStyle(
-                                color: Colors.orange,
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold)),
-                        Text(price,
+                        SizedBox(
+                          width: MediaQuery.of(context).size.width * .5,
+                          child: Text(
+                            text,
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                            style: const TextStyle(
+                                color: Colors.white,
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                        SizedBox(
+                          // width: 170,
+                          width: MediaQuery.of(context).size.width * .45,
+                          child: Text(
+                            overflow: TextOverflow.ellipsis,
+                            maxLines: 2,
+                            subtext,
                             style: const TextStyle(
                               color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 18,
-                            )),
+                              fontSize: 17,
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        Row(
+                          //  mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            const SizedBox(width: 140),
+                            const Text("\$ ",
+                                style: TextStyle(
+                                    color: Colors.orange,
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold)),
+                            Text(price,
+                                style: const TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18,
+                                )),
+                          ],
+                        ),
                       ],
                     ),
                   ],
-                )
+                ),
               ],
             ),
           ),

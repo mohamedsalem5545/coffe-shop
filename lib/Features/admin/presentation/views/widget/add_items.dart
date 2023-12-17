@@ -142,7 +142,6 @@ class _AddItemsState extends State<AddItems> {
       image = File(img.path);
       imUrl = await uploadimage(img);
     }
-    print('imUrl= $imUrl');
     return imUrl;
   }
 

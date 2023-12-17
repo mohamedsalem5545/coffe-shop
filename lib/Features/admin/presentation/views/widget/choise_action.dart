@@ -75,7 +75,7 @@ class ChoiseAction extends StatefulWidget {
   const ChoiseAction({super.key});
 
   @override
-  _ChoiseActionState createState() => _ChoiseActionState();
+  State<ChoiseAction> createState() => _ChoiseActionState();
 }
 
 class _ChoiseActionState extends State<ChoiseAction> {
@@ -115,7 +115,7 @@ class _ChoiseActionState extends State<ChoiseAction> {
               selectedOptions.add(option);
 
               // Add the following line to clear the check mark after a brief delay
-              Future.delayed(Duration(milliseconds: 300), () {
+              Future.delayed(const Duration(milliseconds: 300), () {
                 setState(() {
                   selectedOptions.remove(option);
                 });

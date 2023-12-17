@@ -17,12 +17,12 @@ class _LatteViewState extends State<LatteView> {
   CollectionReference tearef = FirebaseFirestore.instance.collection('late');
   getDate() async {
     var responsbody = await tearef.get();
-    responsbody.docs.forEach((element) {
+    for (var element in responsbody.docs) {
       setState(() {
         lattes.add(element.data());
         totalProductList.add(element.data());
       });
-    });
+    }
   }
 
   @override
