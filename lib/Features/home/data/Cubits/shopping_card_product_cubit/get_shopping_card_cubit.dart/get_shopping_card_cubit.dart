@@ -65,10 +65,8 @@ class GetShoppingCardProducts extends Cubit<GetShoppingCardProductsStates> {
     for (var i = 0; i < shoppingCardList.length; i++) {
       totalPrice += ((int.parse(shoppingCardList[i].price)) *
           shoppingCardList[i].numberOfPaces!);
-      print(shoppingCardList[i].price);
     }
     emit(CalTotalPriceState(totalprice: totalPrice));
-    print(totalPrice);
     return totalPrice;
   }
 }

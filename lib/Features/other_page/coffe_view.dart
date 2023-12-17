@@ -17,12 +17,12 @@ class _CoffeViewState extends State<CoffeView> {
   CollectionReference tearef = FirebaseFirestore.instance.collection('coffe');
   getDate() async {
     var responsbody = await tearef.get();
-    responsbody.docs.forEach((element) {
+    for (var element in responsbody.docs) {
       setState(() {
         coffes.add(element.data());
         totalProductList.add(element.data());
       });
-    });
+    }
   }
 
   @override

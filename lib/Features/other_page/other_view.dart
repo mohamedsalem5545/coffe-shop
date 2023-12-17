@@ -17,12 +17,12 @@ class _OtherViewState extends State<OtherView> {
   CollectionReference tearef = FirebaseFirestore.instance.collection('other');
   getDate() async {
     var responsbody = await tearef.get();
-    responsbody.docs.forEach((element) {
+    for (var element in responsbody.docs) {
       setState(() {
         others.add(element.data());
         totalProductList.add(element.data());
       });
-    });
+    }
   }
 
   @override

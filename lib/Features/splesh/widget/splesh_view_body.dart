@@ -8,7 +8,6 @@ import 'sliding_text.dart';
 class SplashViewbody extends StatefulWidget {
   const SplashViewbody({Key? key}) : super(key: key);
 
-  //final id = 'SplashScreen';
   @override
   State<SplashViewbody> createState() => _SplashViewbodyState();
 }
@@ -67,18 +66,15 @@ class _SplashViewbodyState extends State<SplashViewbody>
       end: Offset.zero,
     ).animate(animationController2);
     animationController2.forward();
-
     animationController1.forward();
   }
-
   void navigateToHome() {
     Future.delayed(const Duration(seconds: 3), () {
-      //Navigator.pushNamed(context, 'homepage');
       if (FirebaseAuth.instance.currentUser != null &&
           FirebaseAuth.instance.currentUser!.emailVerified) {
-        return Navigator.pushNamed(context, 'admin');
+        return Navigator.pushNamed(context, 'homepage');
       } else {
-        return Navigator.pushNamed(context, 'admin');
+        return Navigator.pushNamed(context, 'homepage');
       }
     });
   }

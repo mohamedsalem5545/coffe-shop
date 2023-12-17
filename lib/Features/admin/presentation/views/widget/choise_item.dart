@@ -5,11 +5,11 @@ import 'package:bookly/Features/admin/presentation/views/widget/delet_item.dart'
 import 'package:bookly/Features/admin/presentation/views/widget/update_items.dart';
 
 class ChoiseItems extends StatefulWidget {
-  String action;
-  ChoiseItems({super.key, required this.action});
+ final String action;
+ const ChoiseItems({super.key, required this.action});
 
   @override
-  _ChoiseItemsState createState() => _ChoiseItemsState();
+  State<ChoiseItems> createState() => _ChoiseItemsState();
 }
 
 class _ChoiseItemsState extends State<ChoiseItems> {

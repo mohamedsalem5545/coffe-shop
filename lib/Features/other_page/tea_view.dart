@@ -15,12 +15,12 @@ class _TeaViewState extends State<TeaView> {
   CollectionReference tearef = FirebaseFirestore.instance.collection('tea');
   getDate() async {
     var responsbody = await tearef.get();
-    responsbody.docs.forEach((element) {
+    for (var element in responsbody.docs) {
       setState(() {
         teas.add(element.data());
         totalProductList.add(element.data());
       });
-    });
+    }
   }
 
   @override

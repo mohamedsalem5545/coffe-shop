@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class UpdateItem extends StatefulWidget {
-  String catogryId;
-  UpdateItem({super.key, required this.catogryId});
+  final String catogryId;
+ const UpdateItem({super.key, required this.catogryId});
 
   @override
   State<UpdateItem> createState() => _UpdateItemState();
@@ -31,6 +31,7 @@ class _UpdateItemState extends State<UpdateItem> {
       };
 
       await documentReference.update(dataToUpdate);
+      // ignore: use_build_context_synchronously
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           content: Text('Field updated successfully'),

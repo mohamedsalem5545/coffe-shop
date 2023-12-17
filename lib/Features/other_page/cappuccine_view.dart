@@ -18,12 +18,12 @@ class _CappuccineViewState extends State<CappuccineView> {
       FirebaseFirestore.instance.collection('cappuccine');
   getDate() async {
     var responsbody = await tearef.get();
-    responsbody.docs.forEach((element) {
+    for (var element in responsbody.docs) {
       setState(() {
         cappuccines.add(element.data());
         totalProductList.add(element.data());
       });
-    });
+    }
   }
 
   @override

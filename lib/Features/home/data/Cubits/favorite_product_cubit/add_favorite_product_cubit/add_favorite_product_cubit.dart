@@ -24,21 +24,5 @@ class AddFavoriteProductCubit extends Cubit {
     }
   }
 
-  Future<List<ProductModel>> getFavoriteProductData(String email) async {
-    List<ProductModel> favoriteProductList = [];
-
-    try {
-      final user =
-          FirebaseFirestore.instance.collection('favorite_products_data');
-      final snapshotData = await user.doc(email).collection('products').get();
-      final favoriteProductsData =
-          snapshotData.docs.map((doc) => doc.data()).toList();
-      for (var i = 0; i < favoriteProductsData.length; i++) {
-        favoriteProductList.add(ProductModel.formJson(favoriteProductsData[i]));
-      }
-      return favoriteProductList;
-    } catch (e) {
-      return favoriteProductList;
-    }
-  }
+ 
 }

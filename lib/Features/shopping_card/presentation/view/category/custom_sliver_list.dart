@@ -20,6 +20,7 @@ class _CustomSliverListState extends State<CustomSliverList> {
         .getShoppingCardProductData('Ahmed@gamil.com');
   }
 
+  @override
   Widget build(BuildContext context) {
     return BlocBuilder<GetShoppingCardProducts, GetShoppingCardProductsStates>(
       builder: (context, state) {
@@ -39,10 +40,10 @@ class _CustomSliverListState extends State<CustomSliverList> {
             );
           }));
         } else {
-          return SliverToBoxAdapter(
-            child: Container(
+          return const SliverToBoxAdapter(
+            child: SizedBox(
               height: 600,
-              child: const Center(
+              child: Center(
                 child: SpinKitThreeInOut(
                   color: Colors.grey, // Set the color of the animation
                   size: 50.0, // Set the size of the animation
