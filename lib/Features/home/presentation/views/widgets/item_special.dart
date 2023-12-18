@@ -1,7 +1,5 @@
 import 'package:bookly/Features/details/presentation/details_view.dart';
-import 'package:bookly/Features/home/data/Cubits/favorite_product_cubit/get_favorite_product_cubit/get_favorite_product_cubit.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 // ignore: must_be_immutable
 class ItemSpecial extends StatelessWidget {
