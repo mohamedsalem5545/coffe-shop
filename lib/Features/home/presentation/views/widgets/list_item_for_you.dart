@@ -80,10 +80,6 @@ class _ItemForYouState extends State<ItemForYou> {
                 ),
               ),
             ),
-
-
     );
   }
 }
-
-
