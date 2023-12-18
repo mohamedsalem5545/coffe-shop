@@ -68,6 +68,7 @@ class _SplashViewbodyState extends State<SplashViewbody>
     animationController2.forward();
     animationController1.forward();
   }
+
   void navigateToHome() {
     Future.delayed(const Duration(seconds: 3), () {
       if (FirebaseAuth.instance.currentUser != null &&

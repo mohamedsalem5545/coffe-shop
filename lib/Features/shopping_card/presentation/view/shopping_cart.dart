@@ -16,18 +16,6 @@ class ShoppingCard extends StatefulWidget {
 }
 
 class _ShoppingCardState extends State<ShoppingCard> {
-  //List<ProductModel> shoppingCardList = [];
-  //int totaPrice = 0;
-  // void getData() async {
-  //   shoppingCardList = await BlocProvider.of<GetShoppingCardProducts>(context)
-  //       .getShoppingCardProductData('Ahmed@gamil.com');
-  //   setState(() {});
-  //   for (var i = 0; i < shoppingCardList.length; i++) {
-  //     totaPrice += int.parse(shoppingCardList[i].price) *
-  //         shoppingCardList[i].numberOfPaces!;
-  //   }
-  //   setState(() {});
-  // }
   int totalprice = 0;
 
   @override
