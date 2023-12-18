@@ -40,7 +40,7 @@ class _ProductShoppingCardItemState extends State<ProductShoppingCardItem> {
       ),
       child: Container(
         margin: const EdgeInsets.all(10),
-        height: 155,
+        height: 140,
         width: double.infinity,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.end,
@@ -88,16 +88,16 @@ class _ProductShoppingCardItemState extends State<ProductShoppingCardItem> {
                   ),
                 ),
                 const SizedBox(
-                  width: 5,
+                  width: 10,
                 ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const SizedBox(
-                      height: 10,
+                      height: 5,
                     ),
                     SizedBox(
-                      width: 180,
+                      width: MediaQuery.of(context).size.width * .45,
                       child: Text(
                         overflow: TextOverflow.ellipsis,
                         maxLines: 2,
@@ -109,7 +109,7 @@ class _ProductShoppingCardItemState extends State<ProductShoppingCardItem> {
                       ),
                     ),
                     const SizedBox(
-                      height: 10,
+                      height: 5,
                     ),
                     Row(
                       mainAxisSize: MainAxisSize.min,
@@ -138,7 +138,7 @@ class _ProductShoppingCardItemState extends State<ProductShoppingCardItem> {
                                 fontSize: 18,
                                 fontWeight: FontWeight.bold)),
                         const SizedBox(
-                          width: 140,
+                          width: 80,
                         ),
                         Text(widget.numberOfPices.toString(),
                             style: const TextStyle(

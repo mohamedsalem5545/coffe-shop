@@ -30,8 +30,8 @@ class _CustomProductSizeBottonsState extends State<CustomProductSizeBottons> {
               setState(() {});
             },
             child: Container(
-              height: 40,
-              width: 110,
+              height: 35,
+              width: 100,
               decoration: BoxDecoration(
                   color: s ? Colors.black : Colors.white.withOpacity(.1),
                   borderRadius: BorderRadius.circular(10),
@@ -60,8 +60,8 @@ class _CustomProductSizeBottonsState extends State<CustomProductSizeBottons> {
               setState(() {});
             },
             child: Container(
-              height: 40,
-              width: 110,
+              height: 35,
+              width: 100,
               decoration: BoxDecoration(
                   color: m ? Colors.black : Colors.white.withOpacity(.1),
                   borderRadius: BorderRadius.circular(10),
@@ -90,8 +90,8 @@ class _CustomProductSizeBottonsState extends State<CustomProductSizeBottons> {
               setState(() {});
             },
             child: Container(
-              height: 40,
-              width: 110,
+              height: 35,
+              width: 100,
               decoration: BoxDecoration(
                   color: l ? Colors.black : Colors.white.withOpacity(.1),
                   borderRadius: BorderRadius.circular(10),

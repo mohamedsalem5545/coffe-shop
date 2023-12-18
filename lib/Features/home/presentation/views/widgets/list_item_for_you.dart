@@ -43,35 +43,131 @@ class _ItemForYouState extends State<ItemForYou> {
     return SizedBox(
       height: MediaQuery.of(context).size.height * .33,
       // width: double.infinity,
-      child: forYous.isNotEmpty
-          ? CarouselSlider(
-              items: [
-                  for (int i = 0; i < forYous.length; i++)
-                    CustomForYouItem(
-                      title: forYous[i]['title'],
-                      price: forYous[i]['price'],
-                      des: forYous[i]['des'],
-                      image: forYous[i]['image'],
+      child:forYous.isNotEmpty? ListView.builder(
+        physics: const BouncingScrollPhysics(),
+        scrollDirection: Axis.horizontal,
+        itemCount: forYous.length,
+        itemBuilder: (context, index) {
+          return InkWell(
+            onTap: () {
+              // Navigator.of(context)
+              //     .pushNamedAndRemoveUntil('detailspage', (route) => false);
+              // Navigator.pushNamed(context, 'detailspage');
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return DetailsView(
+                    title: '${forYous[index]['title']}',
+                    des: '${forYous[index]['des']}',
+                    image: '${forYous[index]['image']}',
+                    price: '${forYous[index]['price']}');
+              }));
+            },
+            child: Card(
+              elevation: 20,
+              color: Colors.white.withOpacity(0.1),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20)),
+              margin: const EdgeInsets.only(right: 20),
+              child: Container(
+                padding: const EdgeInsets.all(15),
+                width: 170,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(10),
+                      child: SizedBox(
+                        height: 120,
+                        width: double.infinity,
+                        child: Stack(
+                          children: [
+                            Positioned.fill(
+                                child: Image(
+                              image: AssetImage('${forYous[index]['image']}'),
+                              // image: AssetImage(''${others[index]['image']}''),
+                              fit: BoxFit.cover,
+                            )),
+                            Align(
+                              alignment: Alignment.topRight,
+                              child: Container(
+                                height: 25,
+                                width: 50,
+                                decoration: BoxDecoration(
+                                  color: Colors.black.withOpacity(.7),
+                                  borderRadius: const BorderRadius.only(
+                                      bottomLeft: Radius.circular(10)),
+                                ),
+                                child: const Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
+                                  children: [
+                                    Icon(
+                                      Icons.star,
+                                      color: Colors.orange,
+                                      size: 14,
+                                    ),
+                                    Text(
+                                      '4.5',
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold),
+                                    )
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
                     ),
-                ],
-              options: CarouselOptions(
-                height: 400,
-                scrollPhysics: const BouncingScrollPhysics(),
-                //   aspectRatio: 16 / 9,
-                viewportFraction: 0.51,
-                initialPage: 0,
-                enableInfiniteScroll: true,
-                reverse: false,
-                autoPlay: true,
-                autoPlayInterval: const Duration(seconds: 3),
-                autoPlayAnimationDuration: const Duration(milliseconds: 800),
-                autoPlayCurve: Curves.fastOutSlowIn,
-                enlargeCenterPage: true,
-                //   enlargeFactor: 0.3,
-                //  onPageChanged: callbackFunction,
-                scrollDirection: Axis.horizontal,
-              ))
-          : const SizedBox(
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    Text('${forYous[index]['title']}',
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 1,
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 20,
+                        )),
+                    const SizedBox(
+                      height: 5,
+                    ),
+                    Text('with Oat Milk',
+                        style: TextStyle(
+                          color: Colors.white.withOpacity(.5),
+                          fontSize: 15,
+                        )),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    SizedBox(
+                      width: 200,
+                      child: Row(
+                        children: [
+                          const Align(
+                            alignment: Alignment.topLeft,
+                            child: Text("\$ ",
+                                style: TextStyle(
+                                    color: Colors.orange,
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold)),
+                          ),
+                          Text('${forYous[index]['price']}',
+                              style: const TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 18,
+                              )),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          );
+        },
+      ): const SizedBox(
               height: 600,
               child: Center(
                 child: SpinKitThreeInOut(
