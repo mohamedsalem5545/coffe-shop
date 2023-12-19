@@ -12,7 +12,7 @@ class CustomProductIconAndCategoryname extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 60,
-      width: 60,
+      width: 45,
       decoration: BoxDecoration(
         color: Colors.black,
         borderRadius: BorderRadius.circular(10),
@@ -27,7 +27,7 @@ class CustomProductIconAndCategoryname extends StatelessWidget {
               color: Colors.orange,
             ),
             Text(
-              categoryName,
+              categoryName.substring(0, 4),
               style: TextStyle(
                 color: Colors.white.withOpacity(.5),
               ),

@@ -37,7 +37,7 @@ class CustomContinerWithProductInfo extends StatelessWidget {
                     children: [
                       Text(
                         title.length >= 14
-                            ? title.substring(0, title.length - 3)
+                            ? title.substring(0, title.length - 6)
                             : title,
                         style: const TextStyle(
                             fontSize: 25,
@@ -63,7 +63,7 @@ class CustomContinerWithProductInfo extends StatelessWidget {
                             color: Colors.orange,
                           ),
                           const SizedBox(
-                            width: 10,
+                            width: 5,
                           ),
                           Text(
                             s
@@ -78,7 +78,7 @@ class CustomContinerWithProductInfo extends StatelessWidget {
                             ),
                           ),
                           const SizedBox(
-                            width: 10,
+                            width: 5,
                           ),
                           Text(
                             s
@@ -107,7 +107,7 @@ class CustomContinerWithProductInfo extends StatelessWidget {
                         icon: Icons.coffee,
                       ),
                       SizedBox(
-                        width: 15,
+                        width: 5,
                       ),
                       CustomProductIconAndCategoryname(
                         categoryName: 'Milk',
@@ -120,7 +120,7 @@ class CustomContinerWithProductInfo extends StatelessWidget {
                   ),
                   Container(
                     height: 40,
-                    width: 140,
+                    width: 90,
                     decoration: BoxDecoration(
                         color: Colors.black,
                         borderRadius: BorderRadius.circular(10)),

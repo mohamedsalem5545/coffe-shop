@@ -23,10 +23,10 @@ class CustomForYouItem extends StatelessWidget {
         // Navigator.pushNamed(context, 'detailspage');
         Navigator.push(context, MaterialPageRoute(builder: (context) {
           return DetailsView(
-            title: title, 
-            des: des, 
-            image: image, 
-            price: price, 
+            title: title,
+            des: des,
+            image: image,
+            price: price,
           );
         }));
       },
@@ -87,7 +87,7 @@ class CustomForYouItem extends StatelessWidget {
                 ),
               ),
               const SizedBox(
-                height: 20,
+                height: 5,
               ),
               Text(title,
                   overflow: TextOverflow.ellipsis,
