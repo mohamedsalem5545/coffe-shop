@@ -29,38 +29,69 @@ class _AddimageState extends State<Addimage> {
 
   @override
   Widget build(BuildContext context) {
-
     return Stack(
       alignment: Alignment.bottomRight,
       children: [
-        CircleAvatar(
-          radius: 62,
-          //  backgroundColor: Colors.white,
+        Center(
           child: CircleAvatar(
-              radius: 60,
-              backgroundImage: url == null ? null : NetworkImage(url!)),
+            radius: 62,
+            //  backgroundColor: Colors.white,
+            child: CircleAvatar(
+                radius: 60,
+                backgroundImage: url == null ? null : NetworkImage(url!)),
+          ),
         ),
-        CircleAvatar(
-          radius: 25,
-          backgroundColor: const Color(0xfff5f6f9),
-          //  child: Image.asset(''),
-          child: Center(
-              child: IconButton(
-            onPressed: () {
-              pickImageGallery();
-              setState(() {});
-            },
-            icon: Icon(
-              Icons.camera_alt_outlined,
-              color: Colors.black.withOpacity(0.3),
+        Row(
+          children: [
+            SizedBox(
+              // width: 90,
+              width: MediaQuery.of(context).size.width * .25,
             ),
-          )),
-        )
+            Center(
+                child: IconButton(
+              onPressed: () {
+                pickImageCamera();
+                setState(() {});
+              },
+              icon: const Icon(
+                Icons.camera_alt_outlined,
+                size: 28,
+                // color: Colors.black.withOpacity(0.3),
+                color: Colors.orangeAccent,
+              ),
+            )),
+            SizedBox(
+              // width: 55,
+              width: MediaQuery.of(context).size.width * .14,
+            ),
+            Center(
+                child: IconButton(
+              onPressed: () {
+                pickImageGallery();
+                setState(() {});
+              },
+              icon: const Icon(
+                Icons.collections,
+                size: 28,
+                //color: Colors.black.withOpacity(0.3),
+                color: Colors.orangeAccent,
+              ),
+            ))
+          ],
+        ),
       ],
     );
   }
 
   void pickImageGallery() async {
+    var img = await ImagePicker().pickImage(source: ImageSource.gallery);
+    if (img != null) {
+      image = File(img.path);
+      uploadimage(img);
+    }
+  }
+
+  void pickImageCamera() async {
     var img = await ImagePicker().pickImage(source: ImageSource.camera);
     if (img != null) {
       image = File(img.path);

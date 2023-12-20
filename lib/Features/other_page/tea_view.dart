@@ -39,7 +39,10 @@ class _TeaViewState extends State<TeaView> {
               Navigator.of(context)
                   .pushNamedAndRemoveUntil('homepage', (route) => false);
             },
-            icon: const Icon(Icons.arrow_back)),
+            icon: const Icon(
+              Icons.arrow_back,
+              color: Colors.orangeAccent,
+            )),
         centerTitle: true,
         title: const Text('Tea '),
         actions: [
@@ -48,9 +51,17 @@ class _TeaViewState extends State<TeaView> {
               showSearch(
                   context: context, delegate: ProductSearch(product: teas));
             },
-            icon: const Icon(Icons.search),
+            icon: const Icon(
+              Icons.search,
+              color: Colors.orangeAccent,
+            ),
           ),
-          IconButton(onPressed: () {}, icon: const Icon(Icons.shopping_cart)),
+          IconButton(
+              onPressed: () {},
+              icon: const Icon(
+                Icons.shopping_cart,
+                color: Colors.orangeAccent,
+              )),
         ],
       ),
       body: teas.isNotEmpty
@@ -63,10 +74,6 @@ class _TeaViewState extends State<TeaView> {
                     Navigator.of(context).pushNamedAndRemoveUntil(
                         'detailspage', (route) => false);
                   },
-                  // child: ListView.builder(
-                  //   itemCount: teas.length,
-                  //   itemBuilder: ((context, i) {
-                  //     print('#################===$i');
                   child: ItemSpecial(
                     text: '${teas[index]['title']}',
                     subtext: '${teas[index]['des']}',

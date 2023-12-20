@@ -42,7 +42,10 @@ class _CappuccineViewState extends State<CappuccineView> {
               Navigator.of(context)
                   .pushNamedAndRemoveUntil('homepage', (route) => false);
             },
-            icon: const Icon(Icons.arrow_back)),
+            icon: const Icon(
+              Icons.arrow_back,
+              color: Colors.orangeAccent,
+            )),
         centerTitle: true,
         title: const Text('Cappuccine '),
         actions: [
@@ -52,9 +55,17 @@ class _CappuccineViewState extends State<CappuccineView> {
                   context: context,
                   delegate: ProductSearch(product: cappuccines));
             },
-            icon: const Icon(Icons.search),
+            icon: const Icon(
+              Icons.search,
+              color: Colors.orangeAccent,
+            ),
           ),
-          IconButton(onPressed: () {}, icon: const Icon(Icons.shopping_cart))
+          IconButton(
+              onPressed: () {},
+              icon: const Icon(
+                Icons.shopping_cart,
+                color: Colors.orangeAccent,
+              ))
         ],
       ),
       body: cappuccines.isNotEmpty

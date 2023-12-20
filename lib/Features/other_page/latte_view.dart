@@ -43,7 +43,10 @@ class _LatteViewState extends State<LatteView> {
               Navigator.of(context)
                   .pushNamedAndRemoveUntil('homepage', (route) => false);
             },
-            icon: const Icon(Icons.arrow_back)),
+            icon: const Icon(
+              Icons.arrow_back,
+              color: Colors.orangeAccent,
+            )),
         centerTitle: true,
         title: const Text('Latte '),
         actions: [
@@ -52,33 +55,43 @@ class _LatteViewState extends State<LatteView> {
               showSearch(
                   context: context, delegate: ProductSearch(product: lattes));
             },
-            icon: const Icon(Icons.search),
+            icon: const Icon(
+              Icons.search,
+              color: Colors.orangeAccent,
+            ),
           ),
-          IconButton(onPressed: () {}, icon: const Icon(Icons.shopping_cart))
+          IconButton(
+              onPressed: () {},
+              icon: const Icon(
+                Icons.shopping_cart,
+                color: Colors.orangeAccent,
+              ))
         ],
       ),
-      body:lattes.isNotEmpty? ListView.builder(
-          physics: const BouncingScrollPhysics(),
-          itemCount: lattes.length,
-          itemBuilder: ((context, index) {
-            return GestureDetector(
-              onTap: () {
-                Navigator.of(context)
-                    .pushNamedAndRemoveUntil('detailspage', (route) => false);
-              },
-              child: ItemSpecial(
-                text: '${lattes[index]['title']}',
-                subtext: '${lattes[index]['des']}',
-                url: '${lattes[index]['image']}',
-                price: '${lattes[index]['price']}',
-              ),
-            );
-          })):const  SizedBox(
+      body: lattes.isNotEmpty
+          ? ListView.builder(
+              physics: const BouncingScrollPhysics(),
+              itemCount: lattes.length,
+              itemBuilder: ((context, index) {
+                return GestureDetector(
+                  onTap: () {
+                    Navigator.of(context).pushNamedAndRemoveUntil(
+                        'detailspage', (route) => false);
+                  },
+                  child: ItemSpecial(
+                    text: '${lattes[index]['title']}',
+                    subtext: '${lattes[index]['des']}',
+                    url: '${lattes[index]['image']}',
+                    price: '${lattes[index]['price']}',
+                  ),
+                );
+              }))
+          : const SizedBox(
               height: 600,
               child: Center(
                 child: SpinKitThreeInOut(
-                  color: Colors.grey, 
-                  size: 50.0, 
+                  color: Colors.grey,
+                  size: 50.0,
                 ),
               ),
             ),

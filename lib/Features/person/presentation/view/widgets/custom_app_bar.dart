@@ -9,12 +9,13 @@ class CustomAppBar extends StatelessWidget {
       children: [
         IconButton(
             onPressed: () {
-              // Navigator.of(context)
-              //     .pushNamedAndRemoveUntil('homepage', (route) => false);
+              Navigator.of(context)
+                  .pushNamedAndRemoveUntil('homepage', (route) => false);
             },
             icon: const Icon(
               Icons.arrow_back,
               size: 20,
+              color: Colors.orangeAccent,
             )),
         const SizedBox(width: 20),
         Text(
@@ -22,6 +23,7 @@ class CustomAppBar extends StatelessWidget {
           style: const TextStyle(
             fontSize: 14,
             fontWeight: FontWeight.bold,
+            color: Colors.orangeAccent,
           ),
         )
       ],

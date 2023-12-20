@@ -41,7 +41,10 @@ class _CoffeViewState extends State<CoffeView> {
               Navigator.of(context)
                   .pushNamedAndRemoveUntil('homepage', (route) => false);
             },
-            icon: const Icon(Icons.arrow_back)),
+            icon: const Icon(
+              Icons.arrow_back,
+              color: Colors.orangeAccent,
+            )),
         centerTitle: true,
         title: const Text('Coffe '),
         actions: [
@@ -50,9 +53,17 @@ class _CoffeViewState extends State<CoffeView> {
               showSearch(
                   context: context, delegate: ProductSearch(product: coffes));
             },
-            icon: const Icon(Icons.search),
+            color: Colors.orangeAccent,
+            icon: const Icon(
+              Icons.search,
+            ),
           ),
-          IconButton(onPressed: () {}, icon: const Icon(Icons.shopping_cart))
+          IconButton(
+              onPressed: () {},
+              icon: const Icon(
+                Icons.shopping_cart,
+                color: Colors.orangeAccent,
+              ))
         ],
       ),
       body: coffes.isNotEmpty

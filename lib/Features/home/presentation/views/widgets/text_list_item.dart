@@ -9,7 +9,7 @@ class TextListView extends StatefulWidget {
 }
 
 class _TextListViewState extends State<TextListView> {
-  static int currentIndex = 0;
+  int currentIndex = 0; // Non-static, instance variable
 
   List<String> textList = [
     'For You',
@@ -19,11 +19,10 @@ class _TextListViewState extends State<TextListView> {
     'latte',
     'others',
   ];
+
   @override
   Widget build(BuildContext context) {
-    //print('***************************$currentIndex');
     return ListView.builder(
-      //physics: const NeverScrollableScrollPhysics(),
       itemCount: textList.length,
       scrollDirection: Axis.horizontal,
       itemBuilder: (context, index) {
@@ -31,37 +30,11 @@ class _TextListViewState extends State<TextListView> {
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: GestureDetector(
             onTap: () {
-              currentIndex = index;
-              //   print('**************************$index');
-              if (index == 0) {
-                Navigator.of(context)
-                    .pushNamedAndRemoveUntil('homepage', (route) => false);
-                // Navigator.pushNamed(context, 'homepage');
-                // Navigator.pushNamed(context, '/second');
-              } else if (index == 1) {
-                Navigator.of(context)
-                    .pushNamedAndRemoveUntil('coffepage', (route) => false);
-                // Navigator.pushNamed(context, 'coffepage');
-              } else if (index == 2) {
-                Navigator.of(context)
-                    .pushNamedAndRemoveUntil('teapage', (route) => false);
-              } else if (index == 3) {
-                Navigator.of(context).pushNamedAndRemoveUntil(
-                    'cappuccinepage', (route) => false);
-              } else if (index == 4) {
-                Navigator.of(context)
-                    .pushNamedAndRemoveUntil('lattepage', (route) => false);
-              } else {
-                Navigator.of(context)
-                    .pushNamedAndRemoveUntil('otherpage', (route) => false);
-              }
+              setState(() {
+                currentIndex = index;
+              });
 
-              setState(() {});
-              // //item = currentIndex;
-              // setState(() {});
-              //getState(currentIndex);
-              // Navigator.of(context)
-              //     .pushNamedAndRemoveUntil('search', (route) => false);
+              navigateToPage(context, index);
             },
             child: TextItem(
               text: textList[index],
@@ -71,5 +44,33 @@ class _TextListViewState extends State<TextListView> {
         );
       },
     );
+  }
+
+  void navigateToPage(BuildContext context, int index) {
+    switch (index) {
+      case 0:
+        Navigator.of(context)
+            .pushNamedAndRemoveUntil('homepage', (route) => false);
+        break;
+      case 1:
+        Navigator.of(context)
+            .pushNamedAndRemoveUntil('coffepage', (route) => false);
+        break;
+      case 2:
+        Navigator.of(context)
+            .pushNamedAndRemoveUntil('teapage', (route) => false);
+        break;
+      case 3:
+        Navigator.of(context)
+            .pushNamedAndRemoveUntil('cappuccinepage', (route) => false);
+        break;
+      case 4:
+        Navigator.of(context)
+            .pushNamedAndRemoveUntil('lattepage', (route) => false);
+        break;
+      default:
+        Navigator.of(context)
+            .pushNamedAndRemoveUntil('otherpage', (route) => false);
+    }
   }
 }

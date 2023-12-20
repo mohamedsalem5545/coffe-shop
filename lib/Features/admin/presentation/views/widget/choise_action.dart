@@ -93,6 +93,33 @@ class _ChoiseActionState extends State<ChoiseAction> {
           buildCheckboxListTile('Add'),
           buildCheckboxListTile('Update'),
           buildCheckboxListTile('Delete'),
+          const SizedBox(
+            height: 50,
+          ),
+          ElevatedButton(
+            // style: ButtonStyle(
+
+            //   backgroundColor: MaterialStateProperty.all<Color>(
+            //       Colors.orangeAccent), // Set the background color
+            // ),
+            style: ElevatedButton.styleFrom(
+              fixedSize: const Size(20, 40.0),
+              backgroundColor: Colors.orangeAccent,
+            ),
+
+            onPressed: (() {
+              // print('start data');
+              Navigator.pushNamed(context, 'homepage');
+            }),
+            child: const Text(
+              'Go Home',
+              style: TextStyle(
+                  color: Colors.black,
+                  fontStyle: FontStyle.italic,
+                  fontSize: 26,
+                  fontWeight: FontWeight.bold),
+            ),
+          ),
 
           // Add more options as needed
         ],
