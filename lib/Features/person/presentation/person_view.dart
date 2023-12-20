@@ -36,14 +36,48 @@ class PersonBody extends StatelessWidget {
               title: 'Log Out',
               loadingIcon: Icons.logout_outlined,
               ontap: () {
-                FirebaseAuth.instance.signOut();
-                Navigator.pushNamed(context, 'Splashpage');
+                _showWarningDialog(context);
               },
             ),
             const SizedBox(height: 25),
           ],
         ),
       ),
+    );
+  }
+
+  void _showWarningDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('Warning'),
+          content: const Text('Are you sure you want to Log Out?'),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () {
+                FirebaseAuth.instance.signOut();
+                Navigator.pushNamed(context, 'Splashpage');
+              },
+              child: const Text('Yes'),
+            ),
+            TextButton(
+              onPressed: () {
+                //  Navigator.pushNamed(context, 'Personpage');
+                // Navigator.push(
+                //   context,
+                //   MaterialPageRoute(
+                //     builder: (context) => PersonBody(),
+                //   ),
+                // );
+
+                Navigator.pop(context);
+              },
+              child: const Text('No'),
+            ),
+          ],
+        );
+      },
     );
   }
 }

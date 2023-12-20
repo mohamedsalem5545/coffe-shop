@@ -105,14 +105,6 @@ class _SingnUpViewState extends State<SingnUpView> {
                       return null;
                     },
                   ),
-                  // Container(
-                  //   margin: const EdgeInsets.only(top: 10, bottom: 20),
-                  //   alignment: Alignment.topRight,
-                  //   child: const Text(
-                  //     'forgot password?',
-                  //     style: TextStyle(fontSize: 18),
-                  //   ),
-                  // ),
                 ],
               ),
             ),

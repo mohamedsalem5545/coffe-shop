@@ -1,5 +1,3 @@
-// ignore_for_file: avoid_print
-
 import 'package:bookly/Features/admin/presentation/admi_view.dart';
 import 'package:bookly/Features/home/data/Cubits/favorite_product_cubit/get_favorite_product_cubit/get_favorite_product_cubit.dart';
 import 'package:bookly/Features/home/data/Cubits/shopping_card_product_cubit/add_to_shopping_card_cubit/add_to_shopping_card_cubit.dart';
@@ -22,16 +20,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  // FavoriteProductCubit().addProductToList(
-  //     'Ahmed@gamil.com',
-  //     ProductModel(
-  //         title: 'milk',
-  //         descrip: 'is the best milk',
-  //         imagUrl: 'image.milk',
-  //         price: '4'));
-  // var x =
-  //     await FavoriteProductCubit().getFavoriteProductData('Ahmed@gamil.com');
-  // print("x is ${x.length}");
+
   runApp(const MyApp());
 }
 
