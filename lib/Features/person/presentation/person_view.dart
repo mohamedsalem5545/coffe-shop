@@ -63,14 +63,6 @@ class PersonBody extends StatelessWidget {
             ),
             TextButton(
               onPressed: () {
-                //  Navigator.pushNamed(context, 'Personpage');
-                // Navigator.push(
-                //   context,
-                //   MaterialPageRoute(
-                //     builder: (context) => PersonBody(),
-                //   ),
-                // );
-
                 Navigator.pop(context);
               },
               child: const Text('No'),
