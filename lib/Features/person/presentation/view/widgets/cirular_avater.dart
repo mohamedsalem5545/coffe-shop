@@ -115,7 +115,7 @@ class _AddimageState extends State<Addimage> {
     showModalBottomSheet(
       context: context,
       builder: (BuildContext context) {
-        return Container(
+        return SizedBox(
           height: 90,
           width: double.infinity,
           //  padding: EdgeInsets.all(16),
