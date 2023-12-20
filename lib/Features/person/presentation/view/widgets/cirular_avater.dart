@@ -123,7 +123,6 @@ class _AddimageState extends State<Addimage> {
             //   mainAxisSize: MainAxisSize.min,
             children: <Widget>[
               // Text('This is a bottom sheet'),
-              // SizedBox(height: 16),
               IconButton(
                 onPressed: () {
                   pickImageCamera();
