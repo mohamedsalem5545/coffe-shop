@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -91,7 +92,7 @@ class _AddimageState extends State<Addimage> {
           FirebaseStorage.instance.ref().child(p.basename(img.path));
       await storageRef.putFile(image!);
       imagUrl = await storageRef.getDownloadURL();
-      saveImageUrl(imagUrl!, 'ahmed@gamil.com');
+      saveImageUrl(imagUrl!, FirebaseAuth.instance.currentUser.toString());
       getSavedImage();
       setState(() {});
     }

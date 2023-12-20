@@ -29,6 +29,9 @@ class LoginButton extends StatelessWidget {
               email: email.text,
               password: password.text,
             );
+            // if (email == 'mohamedsalem5545@gmail.com' && password == '123ss') {
+            //   Navigator.of(context).pushReplacementNamed('Admin');
+            // } else
             if (credential.user!.emailVerified) {
               Navigator.of(context).pushReplacementNamed('homepage');
             } else {
@@ -44,7 +47,7 @@ class LoginButton extends StatelessWidget {
             }
           } on FirebaseAuthException catch (e) {
             if (e.code == 'INVALID_LOGIN_CREDENTIALS') {
-         //     print('No user found for that email.');
+              //     print('No user found for that email.');
               AwesomeDialog(
                 context: context,
                 dialogType: DialogType.error,
@@ -53,7 +56,7 @@ class LoginButton extends StatelessWidget {
                 desc: 'No user found for that email.',
               ).show();
             } else if (e.code == 'too-many-requests') {
-          //    print('Wrong password provided for that user.');
+              //    print('Wrong password provided for that user.');
               AwesomeDialog(
                 context: context,
                 dialogType: DialogType.error,
@@ -64,7 +67,7 @@ class LoginButton extends StatelessWidget {
             }
           }
         } else {
-        //  print('not valid');
+          //  print('not valid');
         }
       },
     );
