@@ -1,6 +1,7 @@
 // ignore_for_file: use_build_context_synchronously
 
 import 'package:awesome_dialog/awesome_dialog.dart';
+import 'package:bookly/Features/admin/presentation/admi_view.dart';
 import 'package:bookly/Features/login/presentatiion/view/widgets/custom_bottom_auth.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -29,10 +30,13 @@ class LoginButton extends StatelessWidget {
               email: email.text,
               password: password.text,
             );
-            // if (email == 'mohamedsalem5545@gmail.com' && password == '123ss') {
-            //   Navigator.of(context).pushReplacementNamed('Admin');
-            // } else
-            if (credential.user!.emailVerified) {
+            if (credential.user!.emailVerified &&
+                email.text == 'mohamedsalem5545@gmail.com') {
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return const AdminView();
+              }));
+            } else if (credential.user!.emailVerified &&
+                email.text != 'mohamedsalem5545@gmail.com') {
               Navigator.of(context).pushReplacementNamed('homepage');
             } else {
               FirebaseAuth.instance.currentUser!.sendEmailVerification();
