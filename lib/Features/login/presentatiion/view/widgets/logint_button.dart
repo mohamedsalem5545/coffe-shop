@@ -1,6 +1,7 @@
 // ignore_for_file: use_build_context_synchronously
 
 import 'package:awesome_dialog/awesome_dialog.dart';
+import 'package:bookly/Features/admin/presentation/admi_view.dart';
 import 'package:bookly/Features/login/presentatiion/view/widgets/custom_bottom_auth.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -29,7 +30,13 @@ class LoginButton extends StatelessWidget {
               email: email.text,
               password: password.text,
             );
-            if (credential.user!.emailVerified) {
+            if (credential.user!.emailVerified &&
+                email.text == 'mohamedsalem5545@gmail.com') {
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return const AdminView();
+              }));
+            } else if (credential.user!.emailVerified &&
+                email.text != 'mohamedsalem5545@gmail.com') {
               Navigator.of(context).pushReplacementNamed('homepage');
             } else {
               FirebaseAuth.instance.currentUser!.sendEmailVerification();
@@ -44,7 +51,7 @@ class LoginButton extends StatelessWidget {
             }
           } on FirebaseAuthException catch (e) {
             if (e.code == 'INVALID_LOGIN_CREDENTIALS') {
-         //     print('No user found for that email.');
+              //     print('No user found for that email.');
               AwesomeDialog(
                 context: context,
                 dialogType: DialogType.error,
@@ -53,7 +60,7 @@ class LoginButton extends StatelessWidget {
                 desc: 'No user found for that email.',
               ).show();
             } else if (e.code == 'too-many-requests') {
-          //    print('Wrong password provided for that user.');
+              //    print('Wrong password provided for that user.');
               AwesomeDialog(
                 context: context,
                 dialogType: DialogType.error,
@@ -64,7 +71,7 @@ class LoginButton extends StatelessWidget {
             }
           }
         } else {
-        //  print('not valid');
+          //  print('not valid');
         }
       },
     );

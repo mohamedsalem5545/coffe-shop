@@ -10,6 +10,8 @@ import 'package:bookly/Features/home/data/Cubits/shopping_card_product_cubit/add
 import 'package:bookly/core/utils/function/custom_favorite_product_list.dart';
 import 'package:flutter/material.dart';
 
+int prodctNumber = 1;
+
 class DetailsView extends StatefulWidget {
   final String title;
   final String des;
@@ -35,7 +37,6 @@ class _DetailsViewState extends State<DetailsView> {
   var l = true;
 
   int x = 1;
-  int prodctNumber = 1;
   bool shopcard = false;
   @override
   Widget build(BuildContext context) {
@@ -119,18 +120,21 @@ class _DetailsViewState extends State<DetailsView> {
                                     const SizedBox(
                                       width: 30,
                                     ),
-                                    GestureDetector(
-                                      onTap: () {
-                                        if (prodctNumber > 0) {
-                                          prodctNumber--;
-                                        }
-                                        setState(() {});
-                                      },
-                                      child: const Text('-',
-                                          style: TextStyle(
-                                              color: Colors.orangeAccent,
-                                              fontSize: 40,
-                                              fontWeight: FontWeight.bold)),
+                                    SizedBox(
+                                      height: 42,
+                                      child: GestureDetector(
+                                        onTap: () {
+                                          if (prodctNumber > 0) {
+                                            prodctNumber--;
+                                          }
+                                          setState(() {});
+                                        },
+                                        child: const Text('-',
+                                            style: TextStyle(
+                                                color: Colors.orangeAccent,
+                                                fontSize: 40,
+                                                fontWeight: FontWeight.bold)),
+                                      ),
                                     ),
                                     const SizedBox(
                                       width: 55,
@@ -153,7 +157,10 @@ class _DetailsViewState extends State<DetailsView> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           CustomproductPriceColumn(
-                              price: widget.price, s: s, m: m),
+                            price: widget.price,
+                            s: s,
+                            m: m,
+                          ),
                           CustomBottom(
                             title: 'Buy Now',
                             ontap: () {
