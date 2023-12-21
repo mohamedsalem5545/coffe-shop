@@ -1,5 +1,4 @@
 import 'package:bookly/Features/details/presentation/details_view.dart';
-import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 
 class CustomproductPriceColumn extends StatelessWidget {
