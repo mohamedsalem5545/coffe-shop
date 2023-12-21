@@ -34,7 +34,6 @@ class TotalSearch extends SearchDelegate {
           .toString()
           .toLowerCase()
           .contains(query.toLowerCase());
-      // element['title'].contains(query.toLowerCase());
     }).toList();
     return ListView.builder(
       physics: const BouncingScrollPhysics(),
