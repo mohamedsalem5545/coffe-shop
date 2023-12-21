@@ -13,11 +13,16 @@ class CustomBottomAuth extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialButton(
       onPressed: onPressed,
-      height: 40,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-      color: Colors.orange,
+      height: 55,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(14),
+      ),
+      color:const Color.fromARGB(255, 233, 135, 6),
       textColor: Colors.white,
-      child: Text(title),
+      child: Text(
+        title,
+        style: const TextStyle(fontSize: 22),
+      ),
     );
   }
 }

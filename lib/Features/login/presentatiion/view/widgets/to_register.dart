@@ -12,7 +12,7 @@ class ToRegister extends StatelessWidget {
         child: Text.rich(
           TextSpan(
             children: [
-              TextSpan(text: 'Donot Have An Account ? '),
+              TextSpan(text: 'Don\'t Have An Account ? '),
               TextSpan(
                   text: 'Register',
                   style: TextStyle(

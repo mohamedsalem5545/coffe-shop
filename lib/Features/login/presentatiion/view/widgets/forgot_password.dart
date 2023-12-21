@@ -34,7 +34,7 @@ class ForgotPassword extends StatelessWidget {
             context: context,
             dialogType: DialogType.success,
             animType: AnimType.rightSlide,
-            title: 'Error',
+            title: 'Success',
             desc: 'we send email enter the link in email for change password',
           ).show();
         } catch (e) {

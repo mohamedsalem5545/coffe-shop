@@ -1,5 +1,6 @@
 // ignore_for_file: use_build_context_synchronously, avoid_print, unused_local_variable
 
+import 'package:bookly/Features/login/presentatiion/view/widgets/custom_logo_auth.dart';
 import 'package:bookly/Features/login/presentatiion/view/widgets/custom_text_field.dart';
 import 'package:bookly/Features/signup/presentation/view/widgets/sign_up_button.dart';
 import 'package:bookly/Features/signup/presentation/view/widgets/to_login.dart';
@@ -21,6 +22,7 @@ class _SingnUpViewState extends State<SingnUpView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.black,
       body: Container(
         padding: const EdgeInsets.all(20),
         child: ListView(
@@ -28,37 +30,38 @@ class _SingnUpViewState extends State<SingnUpView> {
             Form(
               key: formState,
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Container(
-                    height: 50,
-                  ),
+                  const SizedBox(height: 50),
+                  const LogoImage(),
+
                   // const LoodImage(),//here put image profile
                   const SizedBox(
-                    height: 20,
+                    height: 10,
                   ),
-                  const Text(
-                    'SignUp',
-                    style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                  const Center(
+                    child: Text(
+                      'Resgister Acount',
+                      style:
+                          TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                    ),
                   ),
                   const SizedBox(
                     height: 10,
                   ),
-                  const Text(
-                    'Login To Continue Using The App',
-                    style: TextStyle(color: Colors.grey),
+                  const Center(
+                    child: Text(
+                      'Login To Continue Using The App',
+                      style: TextStyle(color: Colors.grey),
+                    ),
                   ),
                   const SizedBox(
-                    height: 10,
+                    height: 60,
                   ),
-                  const Text(
-                    'username',
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
+
                   CustomtTextForm(
+                    labelText: 'Username',
                     hinttext: 'Enter Your username',
                     mycontroller: username,
                     validator: (val) {
@@ -69,13 +72,11 @@ class _SingnUpViewState extends State<SingnUpView> {
                     },
                   ),
                   const SizedBox(
-                    height: 20,
+                    height: 30,
                   ),
-                  const Text(
-                    'Email',
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
-                  ),
+
                   CustomtTextForm(
+                    labelText: 'Email',
                     hinttext: 'Enter Your email',
                     mycontroller: email,
                     validator: (val) {
@@ -86,16 +87,11 @@ class _SingnUpViewState extends State<SingnUpView> {
                     },
                   ),
                   const SizedBox(
-                    height: 10,
+                    height: 30,
                   ),
-                  const Text(
-                    'password',
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
+
                   CustomtTextForm(
+                    labelText: 'Password',
                     hinttext: 'Enter Your password',
                     mycontroller: password,
                     validator: (val) {
@@ -108,11 +104,11 @@ class _SingnUpViewState extends State<SingnUpView> {
                 ],
               ),
             ),
-            const SizedBox(height: 30),
+            const SizedBox(height: 60),
             SignUpButton(
                 formState: formState, email: email, password: password),
             const SizedBox(
-              height: 20,
+              height: 50,
             ),
             const ToLogin()
           ],
