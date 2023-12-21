@@ -2,6 +2,7 @@ import 'package:bookly/Features/favorite_products.dart/presentation/favorite_vie
 import 'package:bookly/Features/home/presentation/views/widgets/home_view_body.dart';
 import 'package:bookly/Features/person/presentation/person_view.dart';
 import 'package:bookly/Features/shopping_card/presentation/view/shopping_cart.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatefulWidget {
@@ -13,13 +14,15 @@ class HomeView extends StatefulWidget {
 
 class _HomeViewState extends State<HomeView> {
   int index = 0;
+  late String email = FirebaseAuth.instance.currentUser!.email!;
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
       length: 4,
       child: Scaffold(
         extendBodyBehindAppBar: true,
-        body: getScreen(index),
+        body: getScreen(index, email),
         bottomNavigationBar: BottomNavigationBar(
             showUnselectedLabels: true,
             onTap: (value) {
@@ -70,12 +73,14 @@ class _HomeViewState extends State<HomeView> {
   }
 }
 
-Widget getScreen(int index) {
+Widget getScreen(int index, String email) {
   switch (index) {
     case 0:
       return const HomeViewBody();
     case 1:
-      return const ShoppingCard();
+      return ShoppingCard(
+        email: email,
+      );
     case 2:
       return const FavoriteProducts();
     default:

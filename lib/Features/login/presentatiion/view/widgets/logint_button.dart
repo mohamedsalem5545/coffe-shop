@@ -40,7 +40,6 @@ class LoginButton extends StatelessWidget {
               Navigator.of(context).pushReplacementNamed('homepage');
             } else {
               FirebaseAuth.instance.currentUser!.sendEmailVerification();
-
               AwesomeDialog(
                 context: context,
                 dialogType: DialogType.error,
@@ -59,8 +58,24 @@ class LoginButton extends StatelessWidget {
                 title: 'Error',
                 desc: 'No user found for that email.',
               ).show();
+            } else if (e.code == 'invalid-email') {
+              AwesomeDialog(
+                context: context,
+                dialogType: DialogType.error,
+                animType: AnimType.rightSlide,
+                title: 'Error',
+                desc: 'Email not correct',
+              ).show();
+            } else if (e.code == 'invalid-credential') {
+              AwesomeDialog(
+                context: context,
+                dialogType: DialogType.error,
+                animType: AnimType.rightSlide,
+                title: 'Error',
+                desc: 'Password is not correct',
+              ).show();
             } else if (e.code == 'too-many-requests') {
-              //    print('Wrong password provided for that user.');
+              //   print('Wrong password provided for that user.');
               AwesomeDialog(
                 context: context,
                 dialogType: DialogType.error,
@@ -71,7 +86,13 @@ class LoginButton extends StatelessWidget {
             }
           }
         } else {
-          //  print('not valid');
+          AwesomeDialog(
+            context: context,
+            dialogType: DialogType.error,
+            animType: AnimType.rightSlide,
+            title: 'Error',
+            desc: 'there was an error please try again',
+          ).show();
         }
       },
     );

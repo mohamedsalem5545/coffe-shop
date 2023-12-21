@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 
 class CustomTotalPrice extends StatefulWidget {
-  final int totalPrice;
-  const CustomTotalPrice({super.key, required this.totalPrice});
+  final double totalPrice;
+
+  const CustomTotalPrice({
+    super.key,
+    required this.totalPrice,
+  });
   @override
   State<CustomTotalPrice> createState() => _CustomTotalPriceState();
 }
@@ -36,7 +40,7 @@ class _CustomTotalPriceState extends State<CustomTotalPrice> {
                     color: Colors.orangeAccent,
                     fontSize: 20,
                     fontWeight: FontWeight.bold)),
-            Text(widget.totalPrice.toString(),
+            Text(widget.totalPrice.toString().substring(0, 2),
                 style: const TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.w900,

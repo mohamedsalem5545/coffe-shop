@@ -36,10 +36,11 @@ class _AddimageState extends State<Addimage> {
       children: [
         Center(
           child: CircleAvatar(
-            radius: 62,
+            backgroundColor: Colors.orangeAccent,
+            radius: MediaQuery.of(context).size.width * 0.153,
             //  backgroundColor: Colors.white,
             child: CircleAvatar(
-                radius: 60,
+                radius: MediaQuery.of(context).size.width * 0.15,
                 backgroundImage: url == null ? null : NetworkImage(url!)),
           ),
         ),
@@ -47,10 +48,10 @@ class _AddimageState extends State<Addimage> {
         //   height: 50,
         // ),
         Positioned(
-          bottom: -.5,
-          right: 90,
+          bottom: 0,
+          right: MediaQuery.of(context).size.width * 0.295,
           child: CircleAvatar(
-            radius: 18,
+            radius: 22,
             backgroundColor: const Color(0xfff5f6f9),
             //  child: Image.asset(''),
             child: Center(
@@ -92,23 +93,25 @@ class _AddimageState extends State<Addimage> {
           FirebaseStorage.instance.ref().child(p.basename(img.path));
       await storageRef.putFile(image!);
       imagUrl = await storageRef.getDownloadURL();
-      saveImageUrl(imagUrl!, FirebaseAuth.instance.currentUser.toString());
+      saveImageUrl(imagUrl!);
       getSavedImage();
       setState(() {});
     }
   }
 
-  void saveImageUrl(String url, String userEmail) async {
+  void saveImageUrl(String url) async {
     SharedPreferences sharePreference = await SharedPreferences.getInstance();
-    sharePreference.remove(userEmail);
-    await sharePreference.setString(userEmail, url);
+    sharePreference.remove(FirebaseAuth.instance.currentUser!.email!);
+    await sharePreference.setString(
+        FirebaseAuth.instance.currentUser!.email!, url);
   }
 
   void getSavedImage() async {
     SharedPreferences sharePreference = await SharedPreferences.getInstance();
 
     setState(() {
-      url = sharePreference.getString('ahmed@gamil.com');
+      url =
+          sharePreference.getString(FirebaseAuth.instance.currentUser!.email!);
     });
   }
 

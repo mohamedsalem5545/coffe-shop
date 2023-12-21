@@ -38,8 +38,6 @@ class _CustomtTextFormState extends State<CustomtTextForm> {
                   } else {
                     var1 = true;
                   }
-                  print(var1);
-
                   setState(() {});
                 },
                 icon: const Icon(

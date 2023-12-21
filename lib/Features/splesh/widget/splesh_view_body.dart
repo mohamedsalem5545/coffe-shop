@@ -7,7 +7,6 @@ import 'sliding_text.dart';
 
 class SplashViewbody extends StatefulWidget {
   const SplashViewbody({Key? key}) : super(key: key);
-
   @override
   State<SplashViewbody> createState() => _SplashViewbodyState();
 }

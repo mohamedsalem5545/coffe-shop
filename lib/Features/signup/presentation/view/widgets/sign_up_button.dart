@@ -32,6 +32,7 @@ class SignUpButton extends StatelessWidget {
             FirebaseAuth.instance.currentUser!.sendEmailVerification();
             Navigator.of(context).pushReplacementNamed('login');
           } on FirebaseAuthException catch (e) {
+            print('ahmed${e.code}');
             if (e.code == 'weak-password') {
               print('The password provided is too weak.');
               AwesomeDialog(
@@ -50,12 +51,27 @@ class SignUpButton extends StatelessWidget {
                 title: 'Error',
                 desc: 'The account already exists for that email.',
               ).show();
+            } else if (e.code == 'invalid-email') {
+              print('The account already exists for that email.');
+              AwesomeDialog(
+                context: context,
+                dialogType: DialogType.error,
+                animType: AnimType.rightSlide,
+                title: 'Error',
+                desc: 'The Email in valid',
+              ).show();
             }
           } catch (e) {
             print(e);
           }
         } else {
-          print('not valid');
+          AwesomeDialog(
+            context: context,
+            dialogType: DialogType.error,
+            animType: AnimType.rightSlide,
+            title: 'Error',
+            desc: 'this fields is required!',
+          ).show();
         }
       },
     );

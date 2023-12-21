@@ -6,8 +6,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class CustomSliverList extends StatefulWidget {
-  const CustomSliverList({super.key});
-
+  const CustomSliverList({super.key, required this.email});
+  final String email;
   @override
   State<CustomSliverList> createState() => _CustomSliverListState();
 }
@@ -17,7 +17,7 @@ class _CustomSliverListState extends State<CustomSliverList> {
   void initState() {
     super.initState();
     BlocProvider.of<GetShoppingCardProducts>(context)
-        .getShoppingCardProductData('Ahmed@gamil.com');
+        .getShoppingCardProductData();
   }
 
   @override

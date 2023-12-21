@@ -167,7 +167,6 @@ class _DetailsViewState extends State<DetailsView> {
                               if (shopcard == false) {
                                 shopcard = true;
                                 AddShoppingCardProductsCubit().addProductToList(
-                                    'Ahmed@gamil.com',
                                     ProductModel(
                                         title: widget.title,
                                         descrip: widget.des,

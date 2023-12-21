@@ -115,17 +115,22 @@ class FavoriteItemSpecial extends StatelessWidget {
                     ),
                   ],
                 ),
+                SizedBox(
+                  width: MediaQuery.of(context).size.width * 0.08,
+                ),
                 GestureDetector(
                   onTap: () {
                     BlocProvider.of<GetFavoriteProductCubit>(context)
-                        .deleteProductById('Ahmed@gamil.com', text);
+                        .deleteProductById(text);
                   },
-                  child: const SizedBox(
-                    height: 15,
-                    width: 15,
-                    child: Icon(
-                      Icons.close,
-                      size: 16,
+                  child: SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.03,
+                    width: MediaQuery.of(context).size.width * 0.05,
+                    child: Center(
+                      child: Icon(
+                        Icons.close,
+                        size: 16,
+                      ),
                     ),
                   ),
                 ),

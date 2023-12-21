@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 
 class CutomSearchTextField extends StatelessWidget {
   const CutomSearchTextField({
-    super.key,
+    super.key, this.onchanged,
   });
-
+final void Function(String)?onchanged;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -16,7 +16,7 @@ class CutomSearchTextField extends StatelessWidget {
       ),
       child: TextFormField(
         keyboardType: TextInputType.number,
-        onChanged: (value) {},
+        onChanged: onchanged,
         decoration: InputDecoration(
           prefixIcon: const Icon(
             Icons.discount_outlined,

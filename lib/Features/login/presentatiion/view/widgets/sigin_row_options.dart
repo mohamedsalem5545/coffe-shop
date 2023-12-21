@@ -48,11 +48,13 @@ class _SiginRowOptionsState extends State<SiginRowOptions> {
           imageUrl: 'assets/images/google_image.webp',
         ),
         const SizedBox(width: 20),
-        const SiginOption(
+        SiginOption(
+          ontap: (() {}),
           imageUrl: 'assets/images/facebook_im.png',
         ),
         const SizedBox(width: 20),
-        const SiginOption(
+        SiginOption(
+          ontap: () {},
           imageUrl: 'assets/images/logo.png',
         ),
         const Spacer()

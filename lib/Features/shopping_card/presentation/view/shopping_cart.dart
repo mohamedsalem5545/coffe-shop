@@ -9,15 +9,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ShoppingCard extends StatefulWidget {
-  const ShoppingCard({super.key});
-
+  const ShoppingCard({super.key, required this.email});
+  final String email;
   @override
   State<ShoppingCard> createState() => _ShoppingCardState();
 }
 
 class _ShoppingCardState extends State<ShoppingCard> {
   int totalprice = 0;
-
+  int disscontvalue = 0;
   @override
   void initState() {
     super.initState();
@@ -37,7 +37,9 @@ class _ShoppingCardState extends State<ShoppingCard> {
           const SliverToBoxAdapter(
             child: SizedBox(height: 30),
           ),
-          const CustomSliverList(),
+          CustomSliverList(
+            email: widget.email,
+          ),
           const SliverToBoxAdapter(
             child: SizedBox(height: 20),
           ),
@@ -45,7 +47,17 @@ class _ShoppingCardState extends State<ShoppingCard> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
-                const CutomSearchTextField(),
+                CutomSearchTextField(
+                  onchanged: ((value) {
+                    if (value.isNotEmpty) {
+                      disscontvalue = int.parse(value);
+                    } else {
+                      disscontvalue = 0;
+                    }
+
+                    setState(() {});
+                  }),
+                ),
                 const SizedBox(height: 20),
                 BlocListener<GetShoppingCardProducts,
                     GetShoppingCardProductsStates>(
@@ -56,7 +68,11 @@ class _ShoppingCardState extends State<ShoppingCard> {
                     }
                   },
                   child: CustomTotalPrice(
-                    totalPrice: totalprice,
+                    totalPrice: disscontvalue == 111
+                        ? totalprice * 0.8
+                        : disscontvalue == 333
+                            ? totalprice * 0.85
+                            : double.parse(totalprice.toString()),
                   ),
                 ),
                 const SizedBox(height: 40),

@@ -52,7 +52,7 @@ class _ProductShoppingCardItemState extends State<ProductShoppingCardItem> {
                 onTap: () {
                   if (bo == true) {
                     BlocProvider.of<GetShoppingCardProducts>(context)
-                        .deleteProductById('Ahmed@gamil.com', widget.text);
+                        .deleteProductById( widget.text);
                     //    print(shoppingProductList[widget.index]);
                     //  shoppingProductList.removeAt(widget.numberOfPices);
                     bo = false;

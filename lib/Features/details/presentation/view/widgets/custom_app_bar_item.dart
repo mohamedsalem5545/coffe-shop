@@ -61,7 +61,6 @@ class _CustomAppBarItemState extends State<CustomAppBarItem> {
                   if (lov == false) {
                     lov = true;
                     AddFavoriteProductCubit().addProductToList(
-                        'Ahmed@gamil.com',
                         ProductModel(
                             title: widget.title,
                             descrip: widget.des,

@@ -19,7 +19,7 @@ class _FavoriteProductsState extends State<FavoriteProducts> {
   @override
   void initState() {
     BlocProvider.of<GetFavoriteProductCubit>(context)
-        .getFavoriteProductData('Ahmed@gamil.com');
+        .getFavoriteProductData();
     super.initState();
   }
 

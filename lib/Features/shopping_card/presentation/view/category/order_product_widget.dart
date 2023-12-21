@@ -22,7 +22,7 @@ class _OrderProductWidgetState extends State<OrderProductWidget> {
         GestureDetector(
           onTap: () {
             BlocProvider.of<GetShoppingCardProducts>(context)
-                .deleteAllProductsInShoppingCard('Ahmed@gamil.com');
+                .deleteAllProductsInShoppingCard();
           },
           child: const SizedBox(
             height: 40,

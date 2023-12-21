@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -33,7 +34,8 @@ class _ProfileState extends State<Profile> {
     SharedPreferences sharePreference = await SharedPreferences.getInstance();
 
     setState(() {
-      url = sharePreference.getString('ahmed@gamil.com');
+      url =
+          sharePreference.getString(FirebaseAuth.instance.currentUser!.email!);
     });
   }
 }
