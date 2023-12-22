@@ -96,31 +96,51 @@ class _ChoiseActionState extends State<ChoiseAction> {
           const SizedBox(
             height: 50,
           ),
-          ElevatedButton(
-            // style: ButtonStyle(
+          // ElevatedButton(
+          //   style: ButtonStyle(
+          //     backgroundColor: MaterialStateProperty.all<Color>(
+          //         Colors.orangeAccent), // Set the background color
+          //   ),
+          //   // style: ElevatedButton.styleFrom(
 
-            //   backgroundColor: MaterialStateProperty.all<Color>(
-            //       Colors.orangeAccent), // Set the background color
-            // ),
-            style: ElevatedButton.styleFrom(
-              fixedSize: const Size(20, 40.0),
-              backgroundColor: Colors.orangeAccent,
-            ),
+          //   //   fixedSize: const Size(20, 40.0),
+          //   //   backgroundColor: Colors.orangeAccent,
+          //   // ),
 
-            onPressed: (() {
-              // print('start data');
+          //   onPressed: (() {
+          //     // print('start data');
+          //     Navigator.pushNamed(context, 'homepage');
+          //   }),
+          //   child: const Text(
+          //     'Go Home',
+          //     style: TextStyle(
+          //         color: Colors.black,
+          //         fontStyle: FontStyle.italic,
+          //         fontSize: 26,
+          //         fontWeight: FontWeight.bold),
+          //   ),
+          // ),
+          GestureDetector(
+            onTap: (() {
               Navigator.pushNamed(context, 'homepage');
             }),
-            child: const Text(
-              'Go Home',
-              style: TextStyle(
-                  color: Colors.black,
-                  fontStyle: FontStyle.italic,
-                  fontSize: 26,
-                  fontWeight: FontWeight.bold),
+            child: Container(
+              margin: const EdgeInsets.all(20),
+              height: 60,
+              width: double.infinity,
+              decoration: const BoxDecoration(
+                  color: Color.fromARGB(255, 233, 135, 6),
+                  borderRadius: BorderRadius.all(Radius.circular(12))),
+              child: const Center(
+                  child: Text(
+                'Go Home',
+                style: TextStyle(
+                    color: Colors.white,
+                    // fontWeight: FontWeight.bold,
+                    fontSize: 22),
+              )),
             ),
-          ),
-
+          )
           // Add more options as needed
         ],
       ),
