@@ -59,6 +59,7 @@ class _MyAppState extends State<MyApp> {
       child: MaterialApp(
         theme: ThemeData(
             splashColor: Colors.black,
+            //useMaterial3: false,
             colorScheme: const ColorScheme.dark(),
             //ladfadslfasf
             // textTheme: Theme.of(context).textTheme.apply(bodyColor: Colors.black),
