@@ -126,7 +126,7 @@ class FavoriteItemSpecial extends StatelessWidget {
                   child: SizedBox(
                     height: MediaQuery.of(context).size.height * 0.03,
                     width: MediaQuery.of(context).size.width * 0.05,
-                    child: Center(
+                    child:const Center(
                       child: Icon(
                         Icons.close,
                         size: 16,

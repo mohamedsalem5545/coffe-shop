@@ -16,7 +16,7 @@ class CustomForYouItem extends StatelessWidget {
   final String price;
   @override
   Widget build(BuildContext context) {
-    return InkWell(
+    return GestureDetector(
       onTap: () {
         // Navigator.of(context)
         //     .pushNamedAndRemoveUntil('detailspage', (route) => false);
@@ -32,10 +32,13 @@ class CustomForYouItem extends StatelessWidget {
       },
       child: Card(
         elevation: 20,
-        color: Colors.white.withOpacity(0.1),
+        shadowColor: Colors.black,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         margin: const EdgeInsets.only(right: 20),
         child: Container(
+          decoration: BoxDecoration(
+              color: const Color(0xff2e2b2e),
+              borderRadius: BorderRadius.circular(25)),
           padding: const EdgeInsets.all(15),
           width: 170,
           child: Column(

@@ -1,4 +1,3 @@
-import 'package:bookly/Features/details/presentation/details_view.dart';
 import 'package:flutter/material.dart';
 
 class CustomproductPriceColumn extends StatelessWidget {
@@ -43,10 +42,10 @@ class CustomproductPriceColumn extends StatelessWidget {
             ),
             Text(
               s
-                  ? '${int.parse(price) * prodctNumber}'
+                  ? '${int.parse(price)}'
                   : m
-                      ? '${(int.parse(price) + 1) * prodctNumber}'
-                      : '${(int.parse(price) + 2) * prodctNumber}',
+                      ? '${(int.parse(price) + 1)}'
+                      : '${(int.parse(price) + 2)}',
               style: const TextStyle(
                 color: Colors.white,
                 fontWeight: FontWeight.bold,

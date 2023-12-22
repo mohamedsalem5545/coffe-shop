@@ -10,8 +10,6 @@ import 'package:bookly/Features/home/data/Cubits/shopping_card_product_cubit/add
 import 'package:bookly/core/utils/function/custom_favorite_product_list.dart';
 import 'package:flutter/material.dart';
 
-int prodctNumber = 1;
-
 class DetailsView extends StatefulWidget {
   final String title;
   final String des;
@@ -35,6 +33,7 @@ class _DetailsViewState extends State<DetailsView> {
   var m = false;
 
   var l = true;
+  int prodctNumber = 1;
 
   int x = 1;
   bool shopcard = false;
