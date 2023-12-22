@@ -77,7 +77,7 @@ class _SingnUpViewState extends State<SingnUpView> {
 
                   CustomtTextForm(
                     labelText: 'Email',
-                    hinttext: 'Enter Your email',
+                    hinttext: 'Email',
                     mycontroller: email,
                     validator: (val) {
                       if (val == '') {
@@ -92,7 +92,7 @@ class _SingnUpViewState extends State<SingnUpView> {
 
                   CustomtTextForm(
                     labelText: 'Password',
-                    hinttext: 'Enter Your password',
+                    hinttext: 'password',
                     mycontroller: password,
                     validator: (val) {
                       if (val == '') {
