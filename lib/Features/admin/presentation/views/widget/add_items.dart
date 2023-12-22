@@ -72,14 +72,16 @@ class _AddItemsState extends State<AddItems> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: Column(
+        child: ListView(
           children: [
-            CircularAvaterView(
-              ontap: () async {
-                finalUrl = await pickImageGallery();
-                setState(() {});
-              },
-              imageUrl: imagUrl ?? imagUrl,
+            Center(
+              child: CircularAvaterView(
+                ontap: () async {
+                  finalUrl = await pickImageGallery();
+                  setState(() {});
+                },
+                imageUrl: imagUrl ?? imagUrl,
+              ),
             ),
             CustomTextField(
                 fieldController: _field1Controller, title: 'name item'),
@@ -109,7 +111,7 @@ class _AddItemsState extends State<AddItems> {
 
   Future<String> pickImageGallery() async {
     String imUrl = 'no data';
-    var img = await ImagePicker().pickImage(source: ImageSource.camera);
+    var img = await ImagePicker().pickImage(source: ImageSource.gallery);
     if (img != null) {
       image = File(img.path);
       imUrl = await uploadimage(img);

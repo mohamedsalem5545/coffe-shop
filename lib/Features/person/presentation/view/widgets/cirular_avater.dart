@@ -95,7 +95,8 @@ class _AddimageState extends State<Addimage> {
       imagUrl = await storageRef.getDownloadURL();
       saveImageUrl(imagUrl!);
       getSavedImage();
-      setState(() {});
+
+      ///setState(() {});
     }
   }
 
@@ -113,6 +114,7 @@ class _AddimageState extends State<Addimage> {
       url =
           sharePreference.getString(FirebaseAuth.instance.currentUser!.email!);
     });
+    // url = sharePreference.getString(FirebaseAuth.instance.currentUser!.email!);
   }
 
   void _showBottomSheet(BuildContext context) {

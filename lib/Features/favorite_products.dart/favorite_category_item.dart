@@ -50,8 +50,8 @@ class FavoriteItemSpecial extends StatelessWidget {
                   borderRadius: BorderRadius.circular(20),
                   child: Container(
                     height: double.infinity,
-                    width: 120,
-                    // width: MediaQuery.of(context).size.width * .25,
+                    //width: 100,
+                    width: MediaQuery.of(context).size.width * .25,
                     decoration: BoxDecoration(
                         image: url[0] == 'h'
                             ? DecorationImage(
@@ -126,7 +126,7 @@ class FavoriteItemSpecial extends StatelessWidget {
                   child: SizedBox(
                     height: MediaQuery.of(context).size.height * 0.03,
                     width: MediaQuery.of(context).size.width * 0.05,
-                    child:const Center(
+                    child: const Center(
                       child: Icon(
                         Icons.close,
                         size: 16,
