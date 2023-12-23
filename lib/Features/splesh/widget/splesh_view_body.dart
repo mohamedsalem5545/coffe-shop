@@ -70,9 +70,6 @@ class _SplashViewbodyState extends State<SplashViewbody>
 
   void navigateToHome() {
     Future.delayed(const Duration(seconds: 3), () {
-      // if (FirebaseAuth.instance.currentUser == 'mohamedsalem5545@gmail.com') {
-      //   return Navigator.pushNamed(context, 'admin');
-      // } else
       if (FirebaseAuth.instance.currentUser != null &&
           FirebaseAuth.instance.currentUser!.emailVerified) {
         return Navigator.pushNamed(context, 'homepage');
